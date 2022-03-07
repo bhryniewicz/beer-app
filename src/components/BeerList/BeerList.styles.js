@@ -6,6 +6,7 @@ export const FlexWrapper = styled.div`
   padding: 40px 20px;
   display: flex;
   flex-direction: column;
+  background-color: grey;
 `;
 
 export const Wrapper = styled.div`

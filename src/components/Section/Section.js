@@ -1,20 +1,29 @@
 import React from 'react';
-import { Wrapper, WidthWrapper } from './Section.styles';
+import {
+  WidthWrapper,
+  Title,
+  Image,
+  DescriptionWrapper,
+  Paragraph,
+  Wrapper
+} from './Section.styles';
+import { motion } from 'framer-motion';
 
-export const Section = props => {
+export const Section = ({ isColor, isReversed, data: { title, description, image } }) => {
   return (
-    <Wrapper>
+    <Wrapper isColor={isColor}>
       <WidthWrapper>
-        <div>
-          <h1>Section Title</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae incidunt sunt ratione
-            eaque alias, voluptas, delectus dolor, non nulla qui neque in eligendi eum maxime. Magni
-            similique iste eligendi veniam deleniti repellat quasi maiores quaerat expedita vitae
-            facilis, minima ipsa!
-          </p>
-        </div>
-        <img src="" alt="" />
+        <Title
+          animate={{ x: [200, 0], opacity: [0, 1] }}
+          transition={{ ease: 'easeOut', duration: 1 }}
+          isReversed={isReversed}
+        >
+          {title}
+        </Title>
+        <DescriptionWrapper isReversed={isReversed}>
+          <Paragraph isReversed={isReversed}>{description}</Paragraph>
+          <Image src={image} alt="" />
+        </DescriptionWrapper>
       </WidthWrapper>
     </Wrapper>
   );

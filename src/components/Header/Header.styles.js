@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
+  position: fixed;
 `;
 
 export const Logo = styled.img`
@@ -23,11 +24,23 @@ export const Navigation = styled.nav`
     color: black;
     a {
       text-transform: uppercase;
+      position: relative;
       font-weight: 500;
       font-size: 14px;
       padding: 0 20px;
       text-decoration: none;
       color: black;
+
+      &.active::before {
+        content: '';
+        position: absolute;
+        bottom: -7px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        height: 2px;
+        background-color: #ffc312;
+      }
     }
   }
 `;
