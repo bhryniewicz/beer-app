@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 export const Wrapper = styled.div`
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Sansita+Swashed:wght@400;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&family=Sansita+Swashed:wght@400;600&display=swap');
   background-color: green;
   height: 86vh;
   padding: 40px 0;
@@ -25,6 +25,10 @@ export const DescriptionWrapper = styled.div`
   * {
     width: 50%;
   }
+
+  img {
+    margin: 0;
+  }
 `;
 
 export const Title = styled(motion.h1)`
@@ -33,7 +37,7 @@ export const Title = styled(motion.h1)`
   position: relative;
   display: block;
   width: fit-content;
-  color: ${({ isReversed }) => (isReversed ? 'white' : 'black')};
+  color: ${({ isReversed }) => (isReversed ? '#03544B' : '#03544B')};
 
   display: block;
   z-index: 100;
@@ -45,7 +49,7 @@ export const Title = styled(motion.h1)`
     display: flex;
     align-self: center;
     height: 1.5px;
-    background-color: ${({ isReversed }) => (isReversed ? 'white' : 'black')};
+    background-color: ${({ isReversed }) => (isReversed ? '#03544B' : '#03544B')};
     top: 50%;
     left: 110%;
     transform: translateY(-50%);
@@ -56,11 +60,19 @@ export const Title = styled(motion.h1)`
 
 export const Image = styled.img`
   object-fit: cover;
+  max-height: 350px;
+  margin-top: 70px;
 `;
 
 export const Paragraph = styled.p`
   padding: ${({ isReversed }) => (isReversed ? '0 0 0 50px' : '0 50px 0 0')};
   line-height: 170%;
   text-align: ${({ isReversed }) => (isReversed ? 'right' : 'left')};
-  color: ${({ isReversed }) => (isReversed ? 'white' : 'black')};
+  color: ${({ isReversed }) => (isReversed ? '#03544B' : '#03544B')};
+
+  &::first-letter {
+    font-family: ${({ theme }) => theme.fontFamilies.titleFont};
+    font-size: 44px;
+    font-weight: 100;
+  }
 `;

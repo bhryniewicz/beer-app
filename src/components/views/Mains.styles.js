@@ -31,10 +31,12 @@ export const LandingPageWrapper = styled.div`
 
   button {
     margin-top: 20px;
-    border: 1px solid white;
     outline: none;
     color: white;
-    background-color: transparent;
+    background-color: #ffc312;
+    border: none;
+    border-radius: 15px;
+    font-weight: 600;
     padding: 15px 40px;
     font-size: 16px;
     letter-spacing: 1px;

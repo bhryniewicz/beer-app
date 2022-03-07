@@ -3,5 +3,6 @@ import Background from 'assets/backgroundMain.jpg';
 import Background2 from 'assets/backgroundMain2.jpg';
 import Chmiel from 'assets/chmiel.jpg';
 import Beers from 'assets/beers.jpg';
+import Chmiel2 from 'assets/chmiel2.jpg';
 
-export { Logo, Background, Background2, Chmiel, Beers };
+export { Logo, Background, Background2, Chmiel, Beers, Chmiel2 };

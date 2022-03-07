@@ -3,12 +3,19 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   height: 14vh;
   width: 100%;
-  display: flex;
-  padding: 0 80px 0;
-  justify-content: space-between;
-  align-items: center;
+
   background-color: #fff;
   position: fixed;
+  z-index: 400;
+`;
+
+export const WidthWrapper = styled.div`
+  width: 70%;
+  height: 100%;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const Logo = styled.img`

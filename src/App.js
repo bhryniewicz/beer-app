@@ -4,6 +4,7 @@ import { Main } from 'components/views/Main';
 import { BeerList } from 'components/BeerList/BeerList';
 import { Header } from 'components/Header/Header';
 import { ThemeProvider } from 'styled-components';
+import { Footer } from 'components/Footer/Footer';
 
 function App() {
   const theme = {
@@ -29,6 +30,7 @@ function App() {
             <Route path="/" element={<Main />} />
             <Route path="/beers" element={<BeerList />} />
           </Routes>
+          <Footer />
         </Wrapper>
       </BrowserRouter>
     </ThemeProvider>
