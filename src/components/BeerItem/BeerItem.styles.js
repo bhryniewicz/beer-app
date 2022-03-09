@@ -4,28 +4,50 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 120px;
   grid-template-rows: 40px 100px 20px;
-  border: 1px solid white;
+  border: 1px solid ${({ theme }) => theme.colors.greene};
   padding: 30px;
-  width: 70%;
+  width: 100%;
 `;
 
 export const WrapperDetails = styled.div`
   display: flex;
   grid-row: 3/4;
-  color: white;
+  color: ${({ theme }) => theme.colors.greene};
   p {
     font-size: 12px;
-    padding: 0 15px 0 0;
+    padding: 0 20px 0 0;
+    position: relative;
+
+    span {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-55%);
+      width: 1px;
+      height: 60%;
+      background-color: ${({ theme }) => theme.colors.greene};
+    }
+
+    &:last-child::after {
+      display: none;
+    }
   }
 `;
 
 export const Title = styled.h1`
-  color: white;
+  color: ${({ theme }) => theme.colors.greene};
   font-size: 16px;
 `;
 
 export const Description = styled.p`
-  color: white;
+  color: ${({ theme }) => theme.colors.greene};
   font-size: 14px;
 `;
 

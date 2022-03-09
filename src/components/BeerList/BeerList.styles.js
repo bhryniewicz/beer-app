@@ -1,17 +1,22 @@
 import styled from 'styled-components';
 
 export const FlexWrapper = styled.div`
-  max-width: 80vw;
-  margin: 40px auto 0;
-  padding: 40px 20px;
+  width: 100%;
+  padding: 140px 20px 60px;
   display: flex;
   flex-direction: column;
-  background-color: grey;
+  background-color: ${({ theme }) => theme.colors.sunflower};
 `;
 
 export const Wrapper = styled.div`
   display: grid;
-  grid-gap: 30px 20px;
+  grid-gap: 30px;
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
+  margin-top: 20px;
+`;
+
+export const WidthWrapper = styled.div`
+  width: 70%;
+  margin: 0 auto;
 `;

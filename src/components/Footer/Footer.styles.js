@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 35vh;
+  height: 45vh;
   background-color: #03544b;
   overflow: hidden;
 `;
@@ -11,7 +11,7 @@ export const WidthWrapper = styled.div`
   width: 70%;
   margin: 0 auto;
   display: grid;
-  padding-top: 60px;
+  padding-top: 95px;
   grid-template-columns: repeat(3, minmax(300px, 1fr));
   grid-template-rows: 1fr 80px;
   place-items: start center;
@@ -31,12 +31,12 @@ export const ListElement = styled.li`
     font-size: 18px;
     font-weight: 600;
     text-transform: uppercase;
+    font-family: ${({ theme }) => theme.fontFamilies.titleFont};
   }
 `;
 
 export const RightsReserved = styled.p`
   display: block;
-  background-color: #03544b;
   grid-column: 1/4;
   grid-row: 2/3;
   color: white;

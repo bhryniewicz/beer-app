@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Input as SearchInput, Label } from 'components/Filter/Filter.styles';
+import { Input as SearchInput, Label, Wrapper } from 'components/Filter/Filter.styles';
 
 export const Filter = ({ setIdx, idx, setFindAlcohol, alcohols }, ...props) => {
   const changeId = e => {
@@ -21,9 +21,9 @@ export const Filter = ({ setIdx, idx, setFindAlcohol, alcohols }, ...props) => {
   }, [idx]);
 
   return (
-    <>
+    <Wrapper>
       <Label htmlFor="searchIdx">What are you looking for?</Label>
-      <SearchInput type="text" name="searchIdx" onChange={changeId} isSearch placeholder='Find your favourite beer 🍺'/>
-    </>
+      <SearchInput type="text" name="searchIdx" onChange={changeId} isSearch placeholder="Find your favourite beer 🍺" />
+    </Wrapper>
   );
 };

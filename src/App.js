@@ -5,22 +5,9 @@ import { BeerList } from 'components/BeerList/BeerList';
 import { Header } from 'components/Header/Header';
 import { ThemeProvider } from 'styled-components';
 import { Footer } from 'components/Footer/Footer';
+import { theme } from './theme';
 
 function App() {
-  const theme = {
-    colors: {
-      sunflower: '#FFC312'
-    },
-    fontSizes: {
-      low: '16px',
-      medium: '20px',
-      big: '24px'
-    },
-    fontFamilies: {
-      titleFont: `'Sansita Swashed', cursive`,
-      normalFont: `'Montserrat', sans-serif`
-    }
-  };
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>

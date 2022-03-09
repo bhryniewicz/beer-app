@@ -1,11 +1,26 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+
 export const Wrapper = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&family=Sansita+Swashed:wght@400;600&display=swap');
   background-color: green;
-  height: 86vh;
+  height: ${({ isOneBackground }) => (isOneBackground ? '95vh' : '86vh')};
   padding: 40px 0;
   background-color: ${({ isColor }) => (isColor ? isColor : 'white')};
+  position: relative;
+
+  /* &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: ${({ isColor }) => (isColor ? isColor : 'white')};
+    transform: rotate(45deg);
+    z-index: 300;
+  } */
 `;
 
 export const WidthWrapper = styled.div`
@@ -31,13 +46,14 @@ export const DescriptionWrapper = styled.div`
   }
 `;
 
-export const Title = styled(motion.h1)`
+export const Title = styled.h1`
   font-size: 38px;
   text-transform: uppercase;
   position: relative;
   display: block;
   width: fit-content;
   color: ${({ isReversed }) => (isReversed ? '#03544B' : '#03544B')};
+  word-spacing: 7px;
 
   display: block;
   z-index: 100;
@@ -75,4 +91,9 @@ export const Paragraph = styled.p`
     font-size: 44px;
     font-weight: 100;
   }
+`;
+
+export const List = styled.ul`
+  list-style: circle;
+  color: red;
 `;

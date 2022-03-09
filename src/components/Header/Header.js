@@ -19,7 +19,7 @@ export const Header = props => {
               Products
             </NavLink>
             <NavLink to="/ttt" className={ifActive}>
-              Info
+              Contact
             </NavLink>
           </ul>
         </Navigation>
