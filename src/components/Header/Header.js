@@ -9,7 +9,9 @@ export const Header = props => {
   return (
     <Wrapper>
       <WidthWrapper>
-        <Logo src={HeaderLogo}></Logo>
+        <NavLink to="/">
+          <Logo src={HeaderLogo}></Logo>
+        </NavLink>
         <Navigation>
           <ul>
             <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>
@@ -18,8 +20,11 @@ export const Header = props => {
             <NavLink to="/beers" className={ifActive}>
               Products
             </NavLink>
-            <NavLink to="/ttt" className={ifActive}>
+            <NavLink to="/contact" className={ifActive}>
               Contact
+            </NavLink>
+            <NavLink to="/blog" className={ifActive}>
+              Blog
             </NavLink>
           </ul>
         </Navigation>

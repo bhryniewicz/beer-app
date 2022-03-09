@@ -5,8 +5,8 @@ export const AdvList = ({ advData }) => {
   console.log(advData);
   return (
     <List>
-      {advData.map(adv => {
-        return <ListElement>{adv}</ListElement>;
+      {advData.map((adv, idx) => {
+        return <ListElement key={idx}>{adv}</ListElement>;
       })}
     </List>
   );

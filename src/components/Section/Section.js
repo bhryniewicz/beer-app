@@ -1,8 +1,9 @@
 import React from 'react';
-import { WidthWrapper, Title, Image, DescriptionWrapper, Paragraph, Wrapper } from './Section.styles';
+import { WidthWrapper, Title, DescriptionWrapper, Paragraph, Wrapper } from './Section.styles';
 import { AdvList } from 'components/List/List';
+import { Image } from 'components/ImageSection/Image';
 
-export const Section = ({ isColor, isReversed, isOneBackground, data: { title, description, image } }) => {
+export const Section = ({ isColor, isReversed, isOneBackground, data: { title, description, image, figcaption = '' } }) => {
   const advData = [
     'You can combine ::marker with the content property to change what the marker',
     'You can combine ::marker with the content property to change what the marker1',
@@ -13,7 +14,7 @@ export const Section = ({ isColor, isReversed, isOneBackground, data: { title, d
       <Wrapper isOneBackground={isOneBackground}>
         <WidthWrapper>
           <Title>{title}</Title>
-          <Image src={image} isOneBackground={isOneBackground} />
+          <Image isOneBackground={isOneBackground} src={image} />
           <AdvList advData={advData} />
         </WidthWrapper>
       </Wrapper>
@@ -25,7 +26,7 @@ export const Section = ({ isColor, isReversed, isOneBackground, data: { title, d
           <Title isReversed={isReversed}>{title}</Title>
           <DescriptionWrapper isReversed={isReversed}>
             <Paragraph isReversed={isReversed}>{description}</Paragraph>
-            <Image src={image} alt="" />
+            <Image src={image} figcaption={figcaption} />
           </DescriptionWrapper>
         </WidthWrapper>
       </Wrapper>

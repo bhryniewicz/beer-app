@@ -36,7 +36,8 @@ export const Navigation = styled.nav`
       font-size: 14px;
       padding: 0 20px;
       text-decoration: none;
-      color: black;
+      color: ${({ theme }) => theme.colors.greene};
+      font-weight: 600;
 
       &.active::before {
         content: '';

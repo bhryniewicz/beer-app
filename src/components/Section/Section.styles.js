@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&family=Sansita+Swashed:wght@400;600&display=swap');
   background-color: green;
-  height: ${({ isOneBackground }) => (isOneBackground ? '95vh' : '86vh')};
+  height: ${({ isOneBackground }) => (isOneBackground ? '100vh' : '86vh')};
   padding: 40px 0;
   background-color: ${({ isColor }) => (isColor ? isColor : 'white')};
   position: relative;
@@ -33,7 +33,7 @@ export const WidthWrapper = styled.div`
 
 export const DescriptionWrapper = styled.div`
   flex-direction: ${({ isReversed }) => (isReversed ? 'row-reverse' : 'row')};
-  margin-top: 80px;
+  margin-top: 60px;
   display: flex;
   align-items: center;
   font-family: ${({ theme }) => theme.fontFamilies.normalFont};

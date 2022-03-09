@@ -1,7 +1,7 @@
 import React from 'react';
 import { LandingPageWrapper, Wrapper } from './Mains.styles';
 import { Section } from 'components/Section/Section';
-import { Beers, Chmiel, Chmiel2 } from 'images';
+import { Beers, Chmiel3, Types2 } from 'images';
 
 export const Main = () => {
   const data = [
@@ -9,19 +9,21 @@ export const Main = () => {
       title: 'About us',
       description:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum voluptatem vitae aut est voluptatibus placeat animi, at alias dolor commodi eius voluptatum quos nisi iusto vero reprehenderit eos suscipit tempore repudiandae pariatur deserunt. Modi id sapiente ipsa quae illum nihil?',
-      image: `${Beers}`
+      image: `${Beers}`,
+      figcaption: 'Our beers are tasty and known all around the world'
     },
     {
       title: 'How we brew',
       description:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum voluptatem vitae aut est voluptatibus placeat animi, at alias dolor commodi eius voluptatum quos nisi iusto vero reprehenderit eos suscipit tempore repudiandae pariatur deserunt. Modi id sapiente ipsa quae illum nihil?',
-      image: `${Chmiel2}`
+      image: `${Chmiel3}`,
+      figcaption: 'Our beers are tasty and known all around the world'
     },
     {
       title: 'your choice',
       description:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum voluptatem vitae aut est voluptatibus placeat animi, at alias dolor commodi eius voluptatum quos nisi iusto vero reprehenderit eos suscipit tempore repudiandae pariatur deserunt. Modi id sapiente ipsa quae illum nihil?',
-      image: `${Chmiel}`
+      image: `${Types2}`
     }
   ];
 

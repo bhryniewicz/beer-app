@@ -1,3 +1,4 @@
+import { lighten } from 'polished';
 export const theme = {
   colors: {
     sunflower: '#FFC312',
@@ -6,6 +7,8 @@ export const theme = {
     black: '#000'
   },
   fontSizes: {
+    gigaSmall: '12px',
+    small: '14px',
     low: '16px',
     medium: '20px',
     big: '24px'
@@ -13,5 +16,8 @@ export const theme = {
   fontFamilies: {
     titleFont: `'Sansita Swashed', cursive`,
     normalFont: `'Montserrat', sans-serif`
+  },
+  lightenColors: {
+    green: lighten(0.075, '#03544B')
   }
 };
