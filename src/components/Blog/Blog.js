@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Wrapper } from './Blog.styles';
-import axios from 'axios';
+import { WidthWrapper, Wrapper, BlogEntry, BlogTitle, BlogDescription, BlogPara } from './Blog.styles';
+import { BlogItem } from 'components/BlogItem/BlogItem';
+import { BlogList } from 'components/BlogList/BlogList';
+import { Image } from 'components/ImageSection/Image';
+import { Background } from 'images';
 
 export const Blog = props => {
   const API_TOKEN = 'd9eebc5a4ba21b78859c41764c6e81';
@@ -30,7 +33,7 @@ export const Blog = props => {
     //   .catch(error => {
     //     console.log(error);
     //   });
-    fetch('https://graphql.datocms.com/', {
+    fetch(CMS_LINK, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -42,6 +45,9 @@ export const Blog = props => {
                 allArticles {
                   title,
                   paragraph,
+                  image {
+                      url,
+                  }
                   }
               }`
       })
@@ -55,16 +61,23 @@ export const Blog = props => {
         console.log(error);
       });
   }, []);
+
   return (
     <Wrapper>
-      {posts.map(({ title, paragraph }) => {
-        return (
-          <div>
-            <h1>{title}</h1>
-            <p>{paragraph}</p>
-          </div>
-        );
-      })}
+      <WidthWrapper>
+        <BlogEntry>
+          <Image src={Background} height />
+          <BlogDescription>
+            <BlogTitle>Beer club blog 🍺</BlogTitle>
+            <BlogPara>Check out our recipies and other stuff</BlogPara>
+          </BlogDescription>
+        </BlogEntry>
+        <BlogList>
+          {posts.map(({ title, paragraph, image: { url } }) => {
+            return <BlogItem title={title} paragraph={paragraph} url={url} />;
+          })}
+        </BlogList>
+      </WidthWrapper>
     </Wrapper>
   );
 };

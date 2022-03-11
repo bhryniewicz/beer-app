@@ -74,11 +74,7 @@ export const Title = styled.h1`
   }
 `;
 
-export const Image = styled.img`
-  object-fit: cover;
-  max-height: 350px;
-  margin-top: 70px;
-`;
+//
 
 export const Paragraph = styled.p`
   padding: ${({ isReversed }) => (isReversed ? '0 0 0 50px' : '0 50px 0 0')};

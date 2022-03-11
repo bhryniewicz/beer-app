@@ -32,6 +32,8 @@ export const Button = styled.button`
   border-radius: 15px;
   padding: 15px 40px;
   font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 `;
 
 export const Heading = styled.p`

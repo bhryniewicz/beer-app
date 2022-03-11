@@ -4,6 +4,9 @@ export const Input = styled.input`
   flex: 1;
   padding: 10px 20px;
   height: 45px;
+  //border na dole z bialym
+  /* border: none;
+  border-bottom: 1.5px solid ${({ theme }) => theme.colors.white}; */
   border: 1.5px solid ${({ theme }) => theme.colors.greene};
   border-radius: 15px;
   outline: none;

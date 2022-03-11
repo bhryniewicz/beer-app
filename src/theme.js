@@ -1,6 +1,7 @@
 import { lighten } from 'polished';
 export const theme = {
   colors: {
+    //ff9c6f
     sunflower: '#FFC312',
     greene: '#03544B',
     white: '#fff',

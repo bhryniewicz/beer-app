@@ -4,7 +4,7 @@ import { TextArea } from 'components/TextArea/TextArea';
 import { Wrapper } from './Form.styles';
 
 export const Form = props => {
-  const placeholders = ['First Name', 'LastName', 'Mail', 'Phone'];
+  const placeholders = ['First Name', 'Last Name', 'Mail', 'Phone'];
 
   return (
     <Wrapper>

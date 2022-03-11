@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 45vh;
+  height: 40vh;
   background-color: #03544b;
   overflow: hidden;
 `;
@@ -11,7 +11,7 @@ export const WidthWrapper = styled.div`
   width: 70%;
   margin: 0 auto;
   display: grid;
-  padding-top: 95px;
+  padding-top: 65px;
   grid-template-columns: repeat(3, minmax(300px, 1fr));
   grid-template-rows: 1fr 80px;
   place-items: start center;

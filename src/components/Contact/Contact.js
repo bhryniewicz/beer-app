@@ -60,8 +60,12 @@ export const Contact = props => {
           </Info>
           <Title>Follow Us</Title>
           <Info>
-            {socials.map(social => {
-              return <Heading isBigger>{social}</Heading>;
+            {socials.map((social, idx) => {
+              return (
+                <Heading isBigger key={idx}>
+                  {social}
+                </Heading>
+              );
             })}
           </Info>
         </Wrap>
