@@ -37,6 +37,7 @@ export const Title = styled.h1`
 export const Paragraph = styled.p`
   ${FirstLetter}
   font-size: 14px;
+  text-decoration: none;
 `;
 
 export const Button = styled.button`
@@ -44,11 +45,15 @@ export const Button = styled.button`
   bottom: 20px;
   margin-top: 20px;
   outline: none;
-  color: white;
   background-color: ${({ theme }) => theme.lightenColors.green};
   border: none;
   border-radius: 15px;
   padding: 10px 20px;
   font-size: 14px;
   font-weight: 600;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
 `;

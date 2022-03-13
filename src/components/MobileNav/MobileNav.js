@@ -29,10 +29,18 @@ export const MobileNav = () => {
       {flag ? (
         <Wrapper>
           <AiOutlineClose onClick={changeVisibility} style={closeStyle} />
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/beers">Products</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
-          <NavLink to="/blog">Blog</NavLink>
+          <NavLink to="/" onClick={changeVisibility} index={1}>
+            Home
+          </NavLink>
+          <NavLink to="/beers" onClick={changeVisibility} index={2}>
+            Products
+          </NavLink>
+          <NavLink to="/contact" onClick={changeVisibility} index={3}>
+            Contact
+          </NavLink>
+          <NavLink to="/blog" onClick={changeVisibility} index={4}>
+            Blog
+          </NavLink>
         </Wrapper>
       ) : (
         <HamburgerWrapper>

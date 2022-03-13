@@ -1,5 +1,16 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
+const moveMenu = keyframes`
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+`;
 export const Wrapper = styled.div`
   display: none;
   flex-direction: column;
@@ -21,6 +32,8 @@ export const Wrapper = styled.div`
     text-transform: uppercase;
     font-family: ${({ theme }) => theme.fontFamilies.titleFont};
     padding: 8px 0;
+    animation: ${moveMenu} 0.5s ease-in-out;
+    animation-delay: ${props => console.log};
   }
 `;
 

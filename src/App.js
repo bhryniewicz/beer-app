@@ -7,6 +7,7 @@ import { Header } from 'components/Header/Header';
 import { ThemeProvider } from 'styled-components';
 import { Footer } from 'components/Footer/Footer';
 import { Blog } from 'components/Blog/Blog';
+import { BlogPost } from 'components/BlogPost/BlogPost';
 import { theme } from './theme';
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
             <Route path="/" element={<Main />} />
             <Route path="/beers" element={<BeerList />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/blog" element={<Blog />}></Route>
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog:id" element={<BlogPost />} />
           </Routes>
           <Footer />
         </Wrapper>
