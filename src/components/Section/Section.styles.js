@@ -8,6 +8,9 @@ export const Wrapper = styled.div`
   background-color: ${({ isColor }) => (isColor ? isColor : 'white')};
   position: relative;
 
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+     height: max-content;
+  }
   /* &::after {
     content: '';
     position: absolute;
@@ -37,8 +40,17 @@ export const DescriptionWrapper = styled.div`
   display: flex;
   align-items: center;
   font-family: ${({ theme }) => theme.fontFamilies.normalFont};
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    flex-direction: column;
+  }
+
   * {
     width: 50%;
+
+    @media ${({ theme }) => theme.breakpoints.mobileL} {
+      width: 100%;
+    }
   }
 
   img {
@@ -58,6 +70,10 @@ export const Title = styled.h1`
   display: block;
   z-index: 100;
   font-family: ${({ theme }) => theme.fontFamilies.titleFont};
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    font-size: 28px;
+  }
 
   &::before {
     content: '';
@@ -81,6 +97,11 @@ export const Paragraph = styled.p`
   line-height: 170%;
   text-align: ${({ isReversed }) => (isReversed ? 'right' : 'left')};
   color: ${({ isReversed }) => (isReversed ? '#03544B' : '#03544B')};
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    padding: 0 0 30px;
+    text-align: justify;
+  }
 
   &::first-letter {
     font-family: ${({ theme }) => theme.fontFamilies.titleFont};

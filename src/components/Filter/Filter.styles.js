@@ -17,11 +17,21 @@ export const Input = styled.input`
   align-self: center;
   margin: 0 0 70px 0;
 
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    width: 100%;
+    margin: 0 0 30px;
+    padding: 10px 20px;
+  }
+
   ::placeholder {
     text-align: center;
     color: white;
     opacity: 0.7;
     font-size: ${({ theme }) => theme.fontSizes.low};
+
+    @media ${({ theme }) => theme.breakpoints.mobileL} {
+      font-size: ${({ theme }) => theme.fontSizes.gigaSmall};
+    }
   }
 
   &:focus::placeholder {
@@ -36,4 +46,8 @@ export const Label = styled.label`
   padding: 0 0 20px 0;
   font-weight: bold;
   font-size: 24px;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    font-size: 20px;
+  }
 `;

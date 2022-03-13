@@ -6,4 +6,8 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;

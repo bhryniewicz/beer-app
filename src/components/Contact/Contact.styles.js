@@ -5,11 +5,19 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.sunflower};
   padding: 140px 0 20px 0;
   height: 100vh;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    height: auto;
+  }
 `;
 export const WidthWrapper = styled.div`
   width: 70%;
   margin: 0 auto;
   display: flex;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    flex-direction: column;
+  }
 `;
 
 export const Title = styled.h2`
@@ -45,5 +53,9 @@ export const Heading = styled.p`
 `;
 
 export const Wrap = styled.div`
+  margin-top: 50px;
   transform: translateX(80%);
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    transform: translateX(0);
+  }
 `;

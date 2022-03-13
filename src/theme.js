@@ -1,4 +1,10 @@
 import { lighten } from 'polished';
+const sizes = {
+  mobileS: '321px',
+  mobileM: '376px',
+  mobileL: '416px',
+  tablet: '769px'
+};
 export const theme = {
   colors: {
     //ff9c6f
@@ -20,5 +26,12 @@ export const theme = {
   },
   lightenColors: {
     green: lighten(0.075, '#03544B')
+  },
+
+  breakpoints: {
+    mobileS: `screen and (max-width:${sizes.mobileS})`,
+    mobileM: `screen and (max-width:${sizes.mobileM})`,
+    mobileL: `screen and (max-width:${sizes.mobileL})`,
+    tablet: `screen and (max-width:${sizes.tablet})`
   }
 };

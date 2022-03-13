@@ -5,6 +5,10 @@ export const Wrapper = styled.div`
   height: 40vh;
   background-color: #03544b;
   overflow: hidden;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    height: min-content;
+  }
 `;
 
 export const WidthWrapper = styled.div`
@@ -15,6 +19,11 @@ export const WidthWrapper = styled.div`
   grid-template-columns: repeat(3, minmax(300px, 1fr));
   grid-template-rows: 1fr 80px;
   place-items: start center;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    grid-template-columns: repeat(1, minmax(250px, 1fr));
+    grid-template-rows: repeat(4, 150px);
+  }
 `;
 
 export const List = styled.ul`
@@ -32,6 +41,10 @@ export const ListElement = styled.li`
     font-weight: 600;
     text-transform: uppercase;
     font-family: ${({ theme }) => theme.fontFamilies.titleFont};
+
+    @media ${({ theme }) => theme.breakpoints.mobileL} {
+      margin: 10px 0;
+    }
   }
 `;
 
@@ -47,6 +60,12 @@ export const RightsReserved = styled.p`
   z-index: 10;
   width: fit-content;
 
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    grid-column: 1/2;
+    grid-row: 4/5;
+    align-self: center;
+  }
+
   &::after {
     content: '';
     display: block;
@@ -57,6 +76,10 @@ export const RightsReserved = styled.p`
     height: 1px;
     background-color: #fff;
     z-index: -1;
+    @media ${({ theme }) => theme.breakpoints.mobileL} {
+      width: 40%;
+      left: -50%;
+    }
   }
   &::before {
     content: '';
@@ -68,5 +91,8 @@ export const RightsReserved = styled.p`
     height: 1px;
     background-color: #fff;
     z-index: -1;
+    @media ${({ theme }) => theme.breakpoints.mobileL} {
+      width: 40%;
+    }
   }
 `;

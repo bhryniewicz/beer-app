@@ -14,9 +14,15 @@ export const Wrapper = styled.div`
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
   margin-top: 20px;
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const WidthWrapper = styled.div`
   width: 70%;
   margin: 0 auto;
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    width: 100%;
+  }
 `;

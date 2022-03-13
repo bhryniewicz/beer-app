@@ -18,6 +18,10 @@ export const BlogDescription = styled.div`
   justify-content: center;
   align-items: center;
   width: 50%;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    width: 100%;
+  }
 `;
 export const BlogEntry = styled.div`
   width: 100%;
@@ -25,6 +29,10 @@ export const BlogEntry = styled.div`
   height: 400px;
   background-color: ${({ theme }) => theme.colors.sunflower};
   margin-bottom: 80px;
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    flex-direction: column-reverse;
+    height: auto;
+  }
 `;
 
 export const BlogTitle = styled.h1`
@@ -33,6 +41,10 @@ export const BlogTitle = styled.h1`
   text-align: center;
   font-size: 48px;
   font-family: ${({ theme }) => theme.fontFamilies.titleFont};
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    font-size: 36px;
+  }
 `;
 
 const showArrow = keyframes`
@@ -51,6 +63,11 @@ export const BlogPara = styled.p`
   color: ${({ theme }) => theme.colors.black};
   position: relative;
 
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    font-size: 14px;
+    padding-bottom: 30px;
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -62,5 +79,9 @@ export const BlogPara = styled.p`
     padding: 7px;
     transform: rotate(45deg) translateX(-50%);
     animation: ${showArrow} 1s infinite ease-in-out;
+
+    @media ${({ theme }) => theme.breakpoints.mobileL} {
+      border-color: ${({ theme }) => theme.colors.white};
+    }
   }
 `;

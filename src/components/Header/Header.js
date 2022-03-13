@@ -1,10 +1,12 @@
 import React from 'react';
 import { Wrapper, Logo, Navigation, WidthWrapper } from './Header.styles';
 import { NavLink } from 'react-router-dom';
+import { MobileNav } from 'components/MobileNav/MobileNav';
 import { Logo as HeaderLogo } from 'images';
 
 export const Header = props => {
   const ifActive = ({ isActive }) => (isActive ? 'active' : '');
+  const isWidth = false;
 
   return (
     <Wrapper>
@@ -28,9 +30,8 @@ export const Header = props => {
             </NavLink>
           </ul>
         </Navigation>
+        <MobileNav />
       </WidthWrapper>
     </Wrapper>
   );
 };
-
-Header.propTypes = {};

@@ -3,10 +3,13 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   height: 14vh;
   width: 100%;
-
   background-color: #fff;
   position: fixed;
   z-index: 400;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    height: 8vh;
+  }
 `;
 
 export const WidthWrapper = styled.div`
@@ -22,6 +25,11 @@ export const Logo = styled.img`
   width: 80px;
   height: 80px;
   border-radius: 50%;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    width: 50px;
+    height: 50px;
+  }
 `;
 
 export const Navigation = styled.nav`
@@ -29,6 +37,9 @@ export const Navigation = styled.nav`
     display: flex;
     list-style: none;
     color: black;
+    @media ${({ theme }) => theme.breakpoints.mobileL} {
+      display: none;
+    }
     a {
       text-transform: uppercase;
       position: relative;

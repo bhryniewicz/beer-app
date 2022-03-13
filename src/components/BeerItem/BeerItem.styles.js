@@ -7,6 +7,11 @@ export const Wrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.greene};
   padding: 30px;
   width: 100%;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    grid-template-columns: 1fr 80px;
+    padding: 20px;
+  }
 `;
 
 export const WrapperDetails = styled.div`
@@ -55,4 +60,8 @@ export const Image = styled.img`
   width: 150px;
   height: 160px;
   object-fit: contain;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    width: 90px;
+  }
 `;

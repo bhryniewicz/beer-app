@@ -5,4 +5,7 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
   width: 500px;
   gap: 30px 20px;
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    width: auto;
+  }
 `;

@@ -5,6 +5,10 @@ export const FigureImage = styled.figure`
   flex-direction: column;
   justify-content: center;
   width: ${({ height }) => (height ? '50%' : '')};
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    width: 100%;
+  }
 `;
 
 export const ImageHolder = styled.img`
@@ -12,7 +16,6 @@ export const ImageHolder = styled.img`
   height: ${({ height }) => (height ? '100%' : '350px')};
   margin-top: ${({ height }) => (height ? '0' : '60px')};
   width: 100%;
-  object-position: ${({ isOneBackground }) => console.log(isOneBackground)};
 `;
 
 export const FigImage = styled.figcaption`

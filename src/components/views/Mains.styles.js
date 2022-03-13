@@ -15,17 +15,29 @@ export const LandingPageWrapper = styled.div`
   align-items: center;
   color: white;
 
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    margin-top: 8vh;
+    height: 92vh;
+  }
+
   div {
     width: 70%;
 
     h1 {
       font-size: 40px;
       margin-bottom: 15px;
+      @media ${({ theme }) => theme.breakpoints.mobileL} {
+        text-align: justify;
+      }
     }
 
     p {
       font-style: italic;
       font-size: 20px;
+
+      @media ${({ theme }) => theme.breakpoints.mobileL} {
+        font-size: 14px;
+      }
     }
   }
 
@@ -40,6 +52,10 @@ export const LandingPageWrapper = styled.div`
     padding: 15px 40px;
     font-size: 16px;
     letter-spacing: 1px;
+
+    @media ${({ theme }) => theme.breakpoints.mobileL} {
+      width: 100%;
+    }
   }
 `;
 
