@@ -64,21 +64,6 @@ export const Blog = props => {
       });
   }, []);
 
-  let invoices = [
-    {
-      number: 2005,
-      name: 'Dior'
-    },
-    {
-      number: 2003,
-      name: 'Gucci'
-    },
-    {
-      number: 1995,
-      name: 'Nike'
-    }
-  ];
-
   return (
     <Wrapper>
       <WidthWrapper>

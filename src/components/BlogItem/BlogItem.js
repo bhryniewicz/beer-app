@@ -11,7 +11,7 @@ export const BlogItem = ({ id, title, paragraph, url }) => {
         <Paragraph>{paragraph.slice(0, 100)}...</Paragraph>
 
         <Button>
-          <Link to={`/blog:${id}`} target="_blank" key={id}>
+          <Link to={`/blog:${id}`} key={id}>
             Read more
           </Link>
         </Button>
