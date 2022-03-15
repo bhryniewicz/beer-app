@@ -6,7 +6,7 @@ import { IntlProvider } from 'react-intl';
 
 ReactDOM.render(
   <React.StrictMode>
-    <IntlProvider>
+    <IntlProvider locale={navigator.language}>
       <App />
     </IntlProvider>
   </React.StrictMode>,

@@ -3,16 +3,16 @@ import React, { useState, useEffect } from 'react';
 import { BeerItem } from 'components/BeerItem/BeerItem';
 import { Wrapper, FlexWrapper, WidthWrapper } from './BeerList.styles';
 import { Filter } from 'components/Filter/Filter';
+import { Link } from 'react-router-dom';
 
 export const BeerList = () => {
   const [alcohols, setAlcohols] = useState([]);
   const [findAlcohol, setFindAlcohol] = useState([]);
   const [idx, setIdx] = useState(0);
-  const API_ADDRESS = 'https://api.punkapi.com/v2';
 
   useEffect(() => {
     axios
-      .get(`${API_ADDRESS}/beers?per_page=50`)
+      .get(`${process.env.REACT_APP_BEER_API_LINK}/beers?per_page=50`)
       .then(({ data }) => {
         console.log(data);
         setAlcohols(data);
@@ -28,7 +28,11 @@ export const BeerList = () => {
         <Wrapper>
           {findAlcohol.map(({ id, name, image_url, abv, ph }, idx) => {
             // eslint-disable-next-line prettier/prettier
-            return <BeerItem id={id} name={name} image_url={image_url} abv={abv} key={idx} ph={ph}/>;
+            return (
+              <Link to={`/beers:${id}`} key={id}>
+                <BeerItem id={id} name={name} image_url={image_url} abv={abv} key={idx} ph={ph} />;
+              </Link>
+            );
           })}
         </Wrapper>
       </WidthWrapper>

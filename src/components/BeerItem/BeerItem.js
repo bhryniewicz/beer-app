@@ -7,7 +7,9 @@ export const BeerItem = ({ id, name, image_url, abv, ph }, ...props) => {
     <Wrapper>
       <Title>{name.length > 20 ? `${name.slice(0, 20)}...` : name}</Title>
       <Image src={image_url} alt={name} />
-      <Description>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, sunt.</Description>
+      <Description>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, sunt.
+      </Description>
       <WrapperDetails>
         <p>
           Procentage: <span> {abv}</span>

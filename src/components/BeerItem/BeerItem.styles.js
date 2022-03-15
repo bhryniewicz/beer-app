@@ -12,12 +12,17 @@ export const Wrapper = styled.div`
     grid-template-columns: 1fr 80px;
     padding: 20px;
   }
+
+
 `;
 
 export const WrapperDetails = styled.div`
   display: flex;
   grid-row: 3/4;
   color: ${({ theme }) => theme.colors.greene};
+  * {
+    text-decoration: none;
+  }
   p {
     font-size: 12px;
     padding: 0 20px 0 0;

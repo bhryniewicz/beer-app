@@ -27,7 +27,8 @@ export const Title = styled.h2`
 
 export const Info = styled.p`
   color: ${({ theme }) => theme.colors.black};
-  font-size: ${({ isBigger, theme }) => (isBigger ? theme.fontSizes.small : theme.fontSizes.gigaSmall)};
+  font-size: ${({ isBigger, theme }) =>
+    isBigger ? theme.fontSizes.small : theme.fontSizes.gigaSmall};
   margin: 5px 0 30px;
 `;
 
@@ -49,11 +50,11 @@ export const Heading = styled.p`
   display: ${({ isBigger }) => (isBigger ? 'inline-block' : 'block')};
   padding-right: ${({ isBigger }) => (isBigger ? '15px' : '0')};
   font-weight: ${({ isBigger }) => (isBigger ? '600' : '400')};
-  font-size: ${({ isBigger, theme }) => (isBigger ? theme.fontSizes.small : theme.fontSizes.gigaSmall)};
+  font-size: ${({ isBigger, theme }) =>
+    isBigger ? theme.fontSizes.small : theme.fontSizes.gigaSmall};
 `;
 
 export const Wrap = styled.div`
-  margin-top: 50px;
   transform: translateX(80%);
   @media ${({ theme }) => theme.breakpoints.mobileL} {
     transform: translateX(0);
