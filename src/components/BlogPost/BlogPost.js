@@ -1,14 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { Wrapper, WidthWrapper, PostImage, PostTitle, PostParagraph, Wrap, DatePad } from './BlogPost.styles';
+import {
+  Wrapper,
+  WidthWrapper,
+  PostImage,
+  PostTitle,
+  PostParagraph,
+  Wrap,
+  DatePad
+} from './BlogPost.styles';
 import { FormattedDate } from 'react-intl';
 import { AiFillCalendar } from 'react-icons/ai';
+import { WatchToo } from 'components/WatchToo/WatchToo';
 
 export const BlogPost = () => {
   const [post, setPost] = useState({});
   let params = useParams();
   let postId = params.id;
   const postId2 = postId.replace(':', '');
+
+  const myRef = useRef(null);
+  const handleScrollTop = ref => {
+    ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  //   const executeScroll = handleScrollTop(myRef);
 
   const { title, paragraph, description } = post;
 
@@ -22,6 +38,7 @@ export const BlogPost = () => {
       },
       body: JSON.stringify({
         query: `{article(filter: { id: { eq: "${postId2}" } }) {
+          id  
           title
           paragraph
           image {
@@ -36,7 +53,6 @@ export const BlogPost = () => {
       .then(res => res.json())
       .then(({ data: { article } }) => {
         setPost(article);
-        console.log(article);
       })
       .catch(error => {
         console.log(error);
@@ -44,7 +60,7 @@ export const BlogPost = () => {
 
   useEffect(() => {
     fetchPost();
-  }, []);
+  }, [postId2]);
 
   const calendarStyle = {
     color: '#03544B',
@@ -52,7 +68,7 @@ export const BlogPost = () => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper ref={myRef}>
       <WidthWrapper>
         <PostTitle>{title}</PostTitle>
         <PostParagraph>{paragraph}</PostParagraph>
@@ -63,8 +79,10 @@ export const BlogPost = () => {
             <FormattedDate value={post._createdAt} year="numeric" month="long" day="2-digit" />
           </DatePad>
         </Wrap>
-        <PostParagraph isDescription>{description}</PostParagraph>
-        {/* <WatchToo /> */}
+        <PostParagraph isDescription onClick={() => handleScrollTop(myRef)}>
+          {description}
+        </PostParagraph>
+        <WatchToo />
       </WidthWrapper>
     </Wrapper>
   );

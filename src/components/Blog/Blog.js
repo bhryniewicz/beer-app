@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { WidthWrapper, Wrapper, BlogEntry, BlogTitle, BlogDescription, BlogPara } from './Blog.styles';
+import {
+  WidthWrapper,
+  Wrapper,
+  BlogEntry,
+  BlogTitle,
+  BlogDescription,
+  BlogPara
+} from './Blog.styles';
 import { BlogItem } from 'components/BlogItem/BlogItem';
 import { BlogList } from 'components/BlogList/BlogList';
 import { Image } from 'components/ImageSection/Image';
@@ -32,7 +39,6 @@ export const Blog = props => {
       .then(res => res.json())
       .then(({ data: { allArticles } }) => {
         setPosts(allArticles);
-        console.log(allArticles);
       })
       .catch(error => {
         console.log(error);

@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   background-color: #fff;
   position: fixed;
   z-index: 400;
+  box-shadow: 0 1px 3px 2px rgba(0, 0, 0, 0.1);
 
   @media ${({ theme }) => theme.breakpoints.mobileL} {
     height: 8vh;
