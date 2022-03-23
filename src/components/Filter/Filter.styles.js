@@ -15,7 +15,7 @@ export const Input = styled.input`
   color: white;
   font-weight: bold;
   align-self: center;
-  margin: 0 0 70px 0;
+  margin: 0 0 20px 0;
 
   @media ${({ theme }) => theme.breakpoints.mobileL} {
     width: 100%;

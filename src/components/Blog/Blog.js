@@ -11,38 +11,42 @@ import { BlogItem } from 'components/BlogItem/BlogItem';
 import { BlogList } from 'components/BlogList/BlogList';
 import { Image } from 'components/ImageSection/Image';
 import { Background } from 'images';
+import { Loading } from 'components/BeerList/BeerList.styles';
+import axios from 'axios';
 
 export const Blog = props => {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const config = {
+    headers: {
+      Accept: 'application/json',
+      Authorization: `Bearer ${process.env.REACT_APP_CMS_TOKEN}`
+    }
+  };
+
+  const queryData = {
+    query: `{
+        allArticles {
+          id,
+          title,
+          paragraph,
+          image {
+              url,
+          }
+          }
+      }`
+  };
+
+  const fetchPosts = async () => {
+    const response = await axios.post(process.env.REACT_APP_CMS_LINK, queryData, config);
+    const data = response.data.data.allArticles;
+    setPosts(data);
+    setLoading(false);
+  };
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_CMS_LINK, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization: `Bearer ${process.env.REACT_APP_CMS_TOKEN}`
-      },
-      body: JSON.stringify({
-        query: `{
-                allArticles {
-                  id,
-                  title,
-                  paragraph,
-                  image {
-                      url,
-                  }
-                  }
-              }`
-      })
-    })
-      .then(res => res.json())
-      .then(({ data: { allArticles } }) => {
-        setPosts(allArticles);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    fetchPosts();
   }, []);
 
   return (
@@ -57,9 +61,13 @@ export const Blog = props => {
         </BlogEntry>
 
         <BlogList>
-          {posts.map(({ id, title, paragraph, image: { url } }) => {
-            return <BlogItem title={title} paragraph={paragraph} url={url} id={id} />;
-          })}
+          {loading ? (
+            <Loading isBiggerGrid>Loading...</Loading>
+          ) : (
+            posts.map(({ id, title, paragraph, image: { url } }) => {
+              return <BlogItem title={title} paragraph={paragraph} url={url} id={id} key={id} />;
+            })
+          )}
         </BlogList>
       </WidthWrapper>
     </Wrapper>

@@ -26,3 +26,11 @@ export const WidthWrapper = styled.div`
     width: 100%;
   }
 `;
+
+export const Loading = styled.h2`
+  grid-column: ${({ isBiggerGrid }) => (isBiggerGrid ? '1/8' : '1/3')};
+  text-align: center;
+  font-family: ${({ theme }) => theme.fontFamilies.titleFont};
+  font-size: 40px;
+  letter-spacing: 3px;
+`;

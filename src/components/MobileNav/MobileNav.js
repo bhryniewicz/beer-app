@@ -16,12 +16,12 @@ export const MobileNav = () => {
     position: 'absolute',
     top: '30px',
     right: '30px',
-    'font-size': '35px'
+    fontSize: '35px'
   };
 
   const menuStyle = {
     color: '#FFC312',
-    'font-size': '25px'
+    fontSize: '25px'
   };
 
   return (

@@ -2,48 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { BlogList } from 'components/BlogList/BlogList';
 import { Wrapper, Title } from './WatchToo.styles';
 import { BlogItem } from 'components/BlogItem/BlogItem';
+import axios from 'axios';
 
-export const WatchToo = () => {
+export const WatchToo = ({ id }) => {
   const [posts, setPosts] = useState([]);
-  //   const config = {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Accept: 'application/json',
-  //       Authorization: `Bearer ${process.env.REACT_APP_CMS_TOKEN}`
-  //     }
-  //   };
 
-  //   const data = `"{
-  //     allArticles(first: 3) {
-  //         id
-  //         title
-  //         paragraph
-  //         _createdAt
-  //         _firstPublishedAt
-  //         createdAt
-
-  //       }
-  //   }"`;
-
-  //   const fetchPosts = async () => {
-  //     try {
-  //       const response = await axios.post(process.env.REACT_APP_CMS_LINK, data, config);
-  //       console.log(response);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  const fetchPosts = () => {
-    fetch(process.env.REACT_APP_CMS_LINK, {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization: `Bearer ${process.env.REACT_APP_CMS_TOKEN}`
-      },
-      body: JSON.stringify({
-        query: `{
-        allArticles(first: 3) {
+  const queryData = {
+    query: `{
+        allArticles(first: 3, filter: {id: {notIn: ${id}}}) {
             id
             title
             paragraph
@@ -55,27 +21,32 @@ export const WatchToo = () => {
             }
           }
       }`
-      })
-    })
-      .then(res => res.json())
-      .then(data => {
-        setPosts(data.data.allArticles);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+  };
+
+  const config = {
+    headers: {
+      Accept: 'application/json',
+      Authorization: `Bearer ${process.env.REACT_APP_CMS_TOKEN}`
+    }
+  };
+
+  const fetchPosts = async () => {
+    const response = await axios.post(process.env.REACT_APP_CMS_LINK, queryData, config);
+    const data = response.data.data.allArticles;
+
+    setPosts(data);
   };
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [id]);
 
   return (
     <Wrapper>
       <Title>See other posts too</Title>
       <BlogList>
         {posts.map(({ title, paragraph, image: { url }, id }) => {
-          return <BlogItem title={title} paragraph={paragraph} url={url} id={id} />;
+          return <BlogItem title={title} paragraph={paragraph} url={url} id={id} key={id} />;
         })}
       </BlogList>
     </Wrapper>

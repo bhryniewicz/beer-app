@@ -12,6 +12,8 @@ import {
 import { FormattedDate } from 'react-intl';
 import { AiFillCalendar } from 'react-icons/ai';
 import { WatchToo } from 'components/WatchToo/WatchToo';
+import { Scroll } from 'components/Scroll/Scroll';
+import axios from 'axios';
 
 export const BlogPost = () => {
   const [post, setPost] = useState({});
@@ -19,70 +21,69 @@ export const BlogPost = () => {
   let postId = params.id;
   const postId2 = postId.replace(':', '');
 
-  const myRef = useRef(null);
-  const handleScrollTop = ref => {
-    ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
-  //   const executeScroll = handleScrollTop(myRef);
-
   const { title, paragraph, description } = post;
 
-  const fetchPost = () =>
-    fetch(process.env.REACT_APP_CMS_LINK, {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization: `Bearer ${process.env.REACT_APP_CMS_TOKEN}`
-      },
-      body: JSON.stringify({
-        query: `{article(filter: { id: { eq: "${postId2}" } }) {
-          id  
-          title
-          paragraph
-          image {
-              url
+  const queryData = {
+    query: `{article(filter: { id: { eq: "${postId2}" } }) {
+            id  
+            title
+            paragraph
+            image {
+                url
+            }
+            _createdAt
+            description
           }
-          _createdAt
-          description
-        }
-      }`
-      })
-    })
-      .then(res => res.json())
-      .then(({ data: { article } }) => {
-        setPost(article);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+        }`
+  };
+
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${process.env.REACT_APP_CMS_TOKEN}`
+    }
+  };
+
+  const fetchPostAx = async () => {
+    const response = await axios.post(process.env.REACT_APP_CMS_LINK, queryData, config);
+    const data = response.data.data.article;
+
+    setPost(data);
+  };
 
   useEffect(() => {
-    fetchPost();
+    fetchPostAx();
   }, [postId2]);
 
   const calendarStyle = {
     color: '#03544B',
-    'font-size': '13px'
+    fontSize: '14px',
+    marginBottom: '1.5px'
   };
 
   return (
-    <Wrapper ref={myRef}>
+    <Wrapper>
       <WidthWrapper>
+        <Scroll />
         <PostTitle>{title}</PostTitle>
         <PostParagraph>{paragraph}</PostParagraph>
         <PostImage src={post?.image?.url} alt="123" />
         <Wrap>
           <AiFillCalendar style={calendarStyle} />
           <DatePad>
-            <FormattedDate value={post._createdAt} year="numeric" month="long" day="2-digit" />
+            <FormattedDate
+              value={post._createdAt}
+              year="numeric"
+              month="long"
+              day="2-digit"
+              hour="numeric"
+              minute="numeric"
+            />
           </DatePad>
         </Wrap>
-        <PostParagraph isDescription onClick={() => handleScrollTop(myRef)}>
-          {description}
-        </PostParagraph>
-        <WatchToo />
+        <PostParagraph isDescription>{description}</PostParagraph>
+        <WatchToo id={postId2} />
       </WidthWrapper>
     </Wrapper>
   );

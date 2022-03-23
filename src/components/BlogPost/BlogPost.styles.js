@@ -46,4 +46,6 @@ export const PostParagraph = styled.p`
 export const DatePad = styled.p`
   padding-left: 5px;
   font-size: 12px;
+
+  
 `;
