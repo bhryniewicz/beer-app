@@ -39,14 +39,6 @@ export const Filter = (
     setFindAlcohol(nameContains);
   }, [searchName]);
 
-  //   const alco = alcohols;
-
-  //   console.log(
-  //     alco.forEach(element => {
-  //       console.log(element.name.toLowerCase());
-  //     })
-  //   );
-
   return (
     <Wrapper>
       <Label htmlFor="searchIdx">What are you looking for?</Label>

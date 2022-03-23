@@ -14,6 +14,7 @@ import {
   BeerDescription,
   BeerFoodList
 } from './Beer.styles';
+import { AddToWishlist } from 'components/AddToWishlist/AddToWishlist';
 
 export const Beer = () => {
   const params = useParams();
@@ -74,6 +75,7 @@ export const Beer = () => {
   return (
     <Wrapper>
       <WidthWrapper>
+        <AddToWishlist />
         <BeerInfo>
           {beerInfoLeftEntries.map(Info => {
             const [key, value] = Info;
