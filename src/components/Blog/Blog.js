@@ -5,7 +5,8 @@ import {
   BlogEntry,
   BlogTitle,
   BlogDescription,
-  BlogPara
+  BlogPara,
+  LoadMore
 } from './Blog.styles';
 import { BlogItem } from 'components/BlogItem/BlogItem';
 import { BlogList } from 'components/BlogList/BlogList';
@@ -17,6 +18,9 @@ import axios from 'axios';
 export const Blog = props => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [limit, setLimit] = useState(6);
+
+  const list = posts.slice(0, limit);
 
   const config = {
     headers: {
@@ -47,7 +51,11 @@ export const Blog = props => {
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [limit]);
+
+  const loadMore = () => {
+    setLimit(limit + 6);
+  };
 
   return (
     <Wrapper>
@@ -64,11 +72,12 @@ export const Blog = props => {
           {loading ? (
             <Loading isBiggerGrid>Loading...</Loading>
           ) : (
-            posts.map(({ id, title, paragraph, image: { url } }) => {
+            list.map(({ id, title, paragraph, image: { url } }) => {
               return <BlogItem title={title} paragraph={paragraph} url={url} id={id} key={id} />;
             })
           )}
         </BlogList>
+        {limit >= posts.length ? null : <LoadMore onClick={loadMore}>load more</LoadMore>}
       </WidthWrapper>
     </Wrapper>
   );

@@ -4,6 +4,7 @@ import { BeerItem } from 'components/BeerItem/BeerItem';
 import { Wrapper, FlexWrapper, WidthWrapper, Loading } from './BeerList.styles';
 import { Filter } from 'components/Filter/Filter';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 export const BeerList = () => {
   const [alcohols, setAlcohols] = useState([]);
@@ -14,7 +15,7 @@ export const BeerList = () => {
 
   const fetchBeers = async () => {
     await axios
-      .get(`${process.env.REACT_APP_BEER_API_LINK}/beers?per_page=50`)
+      .get(`${process.env.REACT_APP_BEER_API_LINK}/beers?per_page=80`)
       .then(({ data }) => {
         setAlcohols(data);
         setFindAlcohol(data);
@@ -38,7 +39,7 @@ export const BeerList = () => {
           alcohols={alcohols}
           setFindAlcohol={setFindAlcohol}
         />
-        <Wrapper>
+        <Wrapper as={motion.div}>
           {loading ? (
             <Loading>Loading...</Loading>
           ) : (
@@ -47,7 +48,6 @@ export const BeerList = () => {
               return (
                 <Link to={`/beers:${id}`} key={id}>
                   <BeerItem id={id} name={name} image_url={image_url} abv={abv} key={idx} ph={ph} />
-                  ;
                 </Link>
               );
             })

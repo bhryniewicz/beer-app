@@ -10,31 +10,12 @@ export const Wrapper = styled.div`
 
 export const PositionWrapper = styled.div`
   position: absolute;
-  right: 17%;
+  right: 15%;
   top: 20%;
   cursor: pointer;
-`;
+  z-index: 1000;
 
-const hide = keyframes`
-    from {
-        opacity: 1;
-    }    
-    to {
-        opacity: 0;
-    }
-`;
-
-const show = keyframes`
-       from {
-        opacity: 0;
-    }    
-    to {
-        opacity: 1;
-    }
-`;
-export const Alert = styled.div`
-  width: 100px;
-  height: 50px;
-  background-color: red;
-  animation: ${hide} 0.3s 1.7s ease-in-out, ${show} 0.3s ease-in;
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    top: 15.5%;
+  }
 `;

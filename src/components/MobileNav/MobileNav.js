@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Wrapper, HamburgerWrapper, MenuWrapper } from './MobileNav.styles';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { motion } from 'framer-motion';
 
 export const MobileNav = () => {
   const [flag, setFlag] = useState(false);
@@ -29,7 +30,13 @@ export const MobileNav = () => {
       {flag ? (
         <Wrapper>
           <AiOutlineClose onClick={changeVisibility} style={closeStyle} />
-          <NavLink to="/" onClick={changeVisibility} index={1}>
+          <NavLink
+            animate={{ x: 100 }}
+            transition={{ duration: 2 }}
+            to="/"
+            onClick={changeVisibility}
+            index={1}
+          >
             Home
           </NavLink>
           <NavLink to="/beers" onClick={changeVisibility} index={2}>

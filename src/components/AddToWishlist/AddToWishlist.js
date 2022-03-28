@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { AiFillHeart } from 'react-icons/ai';
-import { Wrapper, PositionWrapper, Alert } from './AddToWishlist.styles';
+import { Wrapper, PositionWrapper } from './AddToWishlist.styles';
+import { Alert } from 'components/Alert/Alert';
 
-export const AddToWishlist = ({ ...props }) => {
-  const [hide, setHide] = useState(false);
+export const AddToWishlist = ({ showAlert }) => {
   const heartStyles = {
     position: 'absolute',
     left: '50%',
@@ -13,20 +13,11 @@ export const AddToWishlist = ({ ...props }) => {
     fontSize: '20px'
   };
 
-  const showAlert = () => {
-    setHide(true);
-
-    setTimeout(() => {
-      setHide(false);
-    }, 2000);
-  };
-
   return (
     <PositionWrapper onClick={showAlert}>
       <Wrapper>
         <AiFillHeart style={heartStyles} />
       </Wrapper>
-      {hide ? <Alert /> : null}
     </PositionWrapper>
   );
 };

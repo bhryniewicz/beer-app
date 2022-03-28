@@ -85,3 +85,25 @@ export const BlogPara = styled.p`
     }
   }
 `;
+
+export const LoadMore = styled.h1`
+  width: fit-content;
+  display: block;
+  position: relative;
+  text-align: center;
+  padding: 30px 0 0 0;
+  font-family: ${({ theme }) => theme.fontFamilies.titleFont};
+  margin: 0 auto;
+  color: ${({ theme }) => theme.colors.greene};
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 6px;
+    width: 100%;
+    height: 2.5px;
+    background-color: ${({ theme }) => theme.colors.greene};
+  }
+`;

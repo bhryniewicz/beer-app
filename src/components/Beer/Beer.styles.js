@@ -12,7 +12,11 @@ export const WidthWrapper = styled.div`
   margin: 0 auto;
   display: grid;
   grid-template-columns: 40% 1fr 25%;
-  
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    display: flex;
+    flex-direction: column;
+    padding: 150px 0 60px;
+  }
 `;
 
 export const BeerImage = styled.img`
@@ -21,6 +25,12 @@ export const BeerImage = styled.img`
   object-fit: contain;
   transform: translateX(-60px) scale(1.3) rotate3d(2, 3, 4, 35deg);
   filter: drop-shadow(0 20px 1.5rem white);
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    padding-top: 50px;
+    width: auto;
+    transform: translateX(0) scale(1) rotate3d(0, 0, 0, 0deg);
+  }
 `;
 
 export const BeerInfo = styled.div`
@@ -38,8 +48,12 @@ export const BeerKey = styled.h4`
     isName ? theme.fontFamilies.titleFont : theme.fontFamilies.normalFont};
   text-transform: capitalize;
   transform: ${({ isName }) => (isName ? 'translateY(-100px)' : 'translateY(0)')};
-  /* color: ${({ theme, isName }) => (isName ? theme.lightenColors.green : theme.colors.black)}; */
   font-weight: 400;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    display: ${({ isName }) => (isName ? 'block' : 'inline')};
+    transform: ${({ isName }) => (isName ? 'translateY(-60px)' : 'translateY(0)')};
+  }
 `;
 
 export const BeerValue = styled.span`
@@ -49,6 +63,12 @@ export const BeerValue = styled.span`
   padding-left: 10px;
   font-weight: ${({ isTip }) => (isTip ? '400' : '600')};
   color: ${({ theme }) => theme.lightenColors.green};
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    display: ${({ isName }) => (isName ? 'block' : 'inline')};
+    padding-left: 0;
+    font-size: ${({ isName }) => (isName ? '38px' : '')};
+  }
 `;
 
 export const BeerWrap = styled.div`
@@ -59,6 +79,10 @@ export const BeerWrapDescription = styled.div`
   width: 50%;
   margin: 0 auto;
   padding: 80px 0 60px 0;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    width: 70%;
+  }
 `;
 
 export const BeerTitle = styled.h2`

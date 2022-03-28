@@ -15,12 +15,14 @@ import {
   BeerFoodList
 } from './Beer.styles';
 import { AddToWishlist } from 'components/AddToWishlist/AddToWishlist';
+import { Alert } from 'components/Alert/Alert';
 
 export const Beer = () => {
   const params = useParams();
   const RawBeerId = params.id;
   const BeerId = RawBeerId.replace(':', '');
   const [beer, setBeer] = useState({});
+  const [hide, setHide] = useState(false);
 
   const fetchBeer = () => {
     axios
@@ -67,15 +69,21 @@ export const Beer = () => {
 
   const beerInfoLeftEntries = Object.entries(beerInfoLeft);
   const beerInfoRightEntries = Object.entries(beerInfoRight);
-
   const foodPairing = beer?.food_pairing;
 
-  console.log(foodPairing);
+  const showAlert = () => {
+    console.log('lecymy');
+    setHide(true);
+
+    setTimeout(() => {
+      setHide(false);
+    }, 2000);
+  };
 
   return (
     <Wrapper>
       <WidthWrapper>
-        <AddToWishlist />
+        <AddToWishlist showAlert={showAlert} />
         <BeerInfo>
           {beerInfoLeftEntries.map(Info => {
             const [key, value] = Info;
@@ -120,6 +128,7 @@ export const Beer = () => {
           })}
         </BeerInfo>
         {/* {tagline} */}
+        {hide ? <Alert content="Beer was added to your wishlist" /> : null}
       </WidthWrapper>
       <BeerWrapDescription>
         <BeerTitle>What is this actually?</BeerTitle>

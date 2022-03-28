@@ -1,10 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Wrapper, WrapperDetails, Description, Title, Image } from './BeerItem.styles';
+import { motion } from 'framer-motion';
 
 export const BeerItem = ({ id, name, image_url, abv, ph }, ...props) => {
   return (
-    <Wrapper>
+    <Wrapper
+      as={motion.div}
+      layout
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <Title>{name.length > 20 ? `${name.slice(0, 20)}...` : name}</Title>
       <Image src={image_url} alt={name} />
       <Description>

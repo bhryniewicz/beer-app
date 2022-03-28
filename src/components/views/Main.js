@@ -2,6 +2,7 @@ import React from 'react';
 import { LandingPageWrapper, Wrapper } from './Mains.styles';
 import { Section } from 'components/Section/Section';
 import { Beers, Chmiel3, Types2 } from 'images';
+import { motion } from 'framer-motion';
 
 export const Main = () => {
   const data = [
@@ -37,12 +38,19 @@ export const Main = () => {
     <Wrapper>
       <LandingPageWrapper>
         <div>
-          <h1>
+          <motion.h1 animate={{ x: [100, 0], opacity: [0, 1] }} transition={{ duration: 1 }}>
             The Beer,
             <br /> that you are waiting for!
-          </h1>
-          <p>Try our new 'Beach Beer'</p>
-          <button>Pick your beer</button>
+          </motion.h1>
+          <motion.p
+            animate={{ x: [100, 0], opacity: [0, 1] }}
+            transition={{ duration: 1, delay: 0.25 }}
+          >
+            Try our new 'Beach Beer'
+          </motion.p>
+          <motion.button animate={{ opacity: [0, 1] }} transition={{ duration: 0.5, delay: 0.75 }}>
+            Pick your beer
+          </motion.button>
         </div>
       </LandingPageWrapper>
       <Section data={data[0]} />

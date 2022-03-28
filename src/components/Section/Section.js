@@ -2,8 +2,14 @@ import React from 'react';
 import { WidthWrapper, Title, DescriptionWrapper, Paragraph, Wrapper } from './Section.styles';
 import { AdvList } from 'components/List/List';
 import { Image } from 'components/ImageSection/Image';
+import { motion } from 'framer-motion';
 
-export const Section = ({ isColor, isReversed, isOneBackground, data: { title, description, image, figcaption = '' } }) => {
+export const Section = ({
+  isColor,
+  isReversed,
+  isOneBackground,
+  data: { title, description, image, figcaption = '' }
+}) => {
   const advData = [
     'You can combine ::marker with the content property to change what the marker',
     'You can combine ::marker with the content property to change what the marker1',
@@ -23,7 +29,9 @@ export const Section = ({ isColor, isReversed, isOneBackground, data: { title, d
     return (
       <Wrapper isColor={isColor}>
         <WidthWrapper>
-          <Title isReversed={isReversed}>{title}</Title>
+          <Title as={motion.h1} animate={{ x: [100, 0] }} isReversed={isReversed}>
+            {title}
+          </Title>
           <DescriptionWrapper isReversed={isReversed}>
             <Paragraph isReversed={isReversed}>{description}</Paragraph>
             <Image src={image} figcaption={figcaption} />
