@@ -30,13 +30,7 @@ export const MobileNav = () => {
       {flag ? (
         <Wrapper>
           <AiOutlineClose onClick={changeVisibility} style={closeStyle} />
-          <NavLink
-            animate={{ x: 100 }}
-            transition={{ duration: 2 }}
-            to="/"
-            onClick={changeVisibility}
-            index={1}
-          >
+          <NavLink to="/" onClick={changeVisibility} index={1}>
             Home
           </NavLink>
           <NavLink to="/beers" onClick={changeVisibility} index={2}>

@@ -5,6 +5,7 @@ import { Wrapper, FlexWrapper, WidthWrapper, Loading } from './BeerList.styles';
 import { Filter } from 'components/Filter/Filter';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Scroll } from 'components/Scroll/Scroll';
 
 export const BeerList = () => {
   const [alcohols, setAlcohols] = useState([]);
@@ -12,6 +13,8 @@ export const BeerList = () => {
   const [findAlcohol, setFindAlcohol] = useState([]);
   const [idx, setIdx] = useState(0);
   const [searchName, setSearchName] = useState('');
+  const [procentage, setProcentage] = useState('');
+  const [error, setError] = useState('');
 
   const fetchBeers = async () => {
     await axios
@@ -21,7 +24,10 @@ export const BeerList = () => {
         setFindAlcohol(data);
         setLoading(false);
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err);
+        setError('Cant fetch data');
+      });
   };
 
   useEffect(() => {
@@ -30,6 +36,7 @@ export const BeerList = () => {
 
   return (
     <FlexWrapper>
+      <Scroll />
       <WidthWrapper>
         <Filter
           setIdx={setIdx}
@@ -38,9 +45,13 @@ export const BeerList = () => {
           setSearchName={setSearchName}
           alcohols={alcohols}
           setFindAlcohol={setFindAlcohol}
+          procentage={procentage}
+          setProcentage={setProcentage}
         />
         <Wrapper as={motion.div}>
-          {loading ? (
+          {error ? (
+            error
+          ) : loading ? (
             <Loading>Loading...</Loading>
           ) : (
             findAlcohol.map(({ id, name, image_url, abv, ph }, idx) => {

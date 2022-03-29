@@ -29,4 +29,9 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.greene};
   color: ${({ theme }) => theme.colors.sunflower};
   animation: ${hide} 0.3s 1.7s ease-in-out, ${show} 0.3s ease-in;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    right: 50%;
+    transform: translateX(50%);
+  }
 `;

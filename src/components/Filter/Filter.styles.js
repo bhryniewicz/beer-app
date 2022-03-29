@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 80px;
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    margin-bottom: 40px;
+  }
 `;
 
 export const Input = styled.input`
@@ -15,7 +19,7 @@ export const Input = styled.input`
   color: white;
   font-weight: bold;
   align-self: center;
-  margin: 0 0 20px 0;
+  margin: 0 0 20px;
 
   @media ${({ theme }) => theme.breakpoints.mobileL} {
     width: 100%;
@@ -49,5 +53,16 @@ export const Label = styled.label`
 
   @media ${({ theme }) => theme.breakpoints.mobileL} {
     font-size: 20px;
+  }
+`;
+
+export const SearchWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-space-between;
+  gap: 0 20px;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    flex-direction: column;
   }
 `;

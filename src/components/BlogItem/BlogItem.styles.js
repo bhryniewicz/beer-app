@@ -18,6 +18,11 @@ export const Description = styled.div`
   height: 200px;
   padding: 20px;
   position: relative;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    height: 230px;
+    width: auto;
+  }
 `;
 
 const FirstLetter = css`

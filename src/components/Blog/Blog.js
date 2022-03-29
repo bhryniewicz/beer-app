@@ -18,9 +18,6 @@ import axios from 'axios';
 export const Blog = props => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [limit, setLimit] = useState(6);
-
-  const list = posts.slice(0, limit);
 
   const config = {
     headers: {
@@ -48,6 +45,9 @@ export const Blog = props => {
     setPosts(data);
     setLoading(false);
   };
+
+  const [limit, setLimit] = useState(6);
+  const list = posts.slice(0, limit);
 
   useEffect(() => {
     fetchPosts();

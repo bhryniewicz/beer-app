@@ -16,6 +16,7 @@ import {
 } from './Beer.styles';
 import { AddToWishlist } from 'components/AddToWishlist/AddToWishlist';
 import { Alert } from 'components/Alert/Alert';
+import { Scroll } from 'components/Scroll/Scroll';
 
 export const Beer = () => {
   const params = useParams();
@@ -83,6 +84,7 @@ export const Beer = () => {
   return (
     <Wrapper>
       <WidthWrapper>
+        <Scroll />
         <AddToWishlist showAlert={showAlert} />
         <BeerInfo>
           {beerInfoLeftEntries.map(Info => {

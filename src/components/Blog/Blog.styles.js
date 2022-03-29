@@ -66,6 +66,7 @@ export const BlogPara = styled.p`
   @media ${({ theme }) => theme.breakpoints.mobileL} {
     font-size: 14px;
     padding-bottom: 30px;
+    text-align: center;
   }
 
   &::before {
