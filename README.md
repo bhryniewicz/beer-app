@@ -1,3 +1,18 @@
+# BEER_APP
+
+### This BEER_APP is generally to study new technologies in React. There is a blog and There is a search bar with filters to find you favourite beer
+
+### Blog is done with DATOCMS
+
+### API, which I used is here: ![Beer](https://punkapi.com/)
+
+### Technologies used:
+
+- Axios
+- Styled-components
+- React-router
+- React-icons
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
