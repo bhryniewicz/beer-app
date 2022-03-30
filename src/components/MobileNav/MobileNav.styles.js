@@ -9,8 +9,25 @@ const moveMenu = keyframes`
     to {
         opacity: 1;
         transform: translateX(0);
+        display: block;
     }
 `;
+
+function template(i) {
+  return `
+          &:nth-child(${i + 1}) {
+            animation-delay: ${(i - 1) * 0.3}s;
+           }
+        `;
+}
+function getAnimations() {
+  let str = '';
+  for (let index = 0; index < 5; index += 1) {
+    str += template(index);
+  }
+  return str;
+}
+
 export const Wrapper = styled.div`
   display: none;
   flex-direction: column;
@@ -32,8 +49,9 @@ export const Wrapper = styled.div`
     text-transform: uppercase;
     font-family: ${({ theme }) => theme.fontFamilies.titleFont};
     padding: 8px 0;
-    animation: ${moveMenu} 0.5s ease-in-out;
-    animation-delay: ${props => console.log};
+    animation: ${moveMenu} 0.5s ease-in-out both;
+
+    ${getAnimations()}
   }
 `;
 
