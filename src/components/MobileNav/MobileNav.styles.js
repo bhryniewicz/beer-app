@@ -30,6 +30,7 @@ function getAnimations() {
 
 export const Wrapper = styled.div`
   display: none;
+  color: red;
   flex-direction: column;
   justify-content: center;
   align-items: center;
