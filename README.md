@@ -4,7 +4,7 @@
 
 ### Blog is done with DATOCMS
 
-### API, which I used is here: ![Beer](https://punkapi.com/)
+### API, which I used is here: [Beer](https://punkapi.com/)
 
 ### Technologies used:
 
