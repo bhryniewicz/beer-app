@@ -23,6 +23,12 @@ export const Description = styled.div`
     height: 230px;
     width: auto;
   }
+  @media ${({ theme }) => theme.breakpoints.mobileM} {
+    width: 260px;
+  }
+  @media ${({ theme }) => theme.breakpoints.mobileM} {
+    width: 220px;
+  }
 `;
 
 const FirstLetter = css`
@@ -43,6 +49,7 @@ export const Paragraph = styled.p`
   ${FirstLetter}
   font-size: 14px;
   text-decoration: none;
+  overflow-wrap: break-word;
 `;
 
 export const Button = styled.button`
