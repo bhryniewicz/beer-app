@@ -6,6 +6,8 @@
 
 ### API, which I used is here: [Beer](https://punkapi.com/)
 
+### There is a wishlist, which uses localStorage to store beer, which we added
+
 ### Technologies used:
 
 - Axios
