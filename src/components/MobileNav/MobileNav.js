@@ -42,6 +42,9 @@ export const MobileNav = () => {
           <NavLink to="/blog" onClick={changeVisibility} className="nav-4">
             Blog
           </NavLink>
+          <NavLink to="/wishlist" onClick={changeVisibility} className="nav-5">
+            Wishlist
+          </NavLink>
         </Wrapper>
       ) : (
         <HamburgerWrapper>

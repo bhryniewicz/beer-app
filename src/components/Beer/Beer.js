@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import {
@@ -17,6 +17,7 @@ import {
 import { AddToWishlist } from 'components/AddToWishlist/AddToWishlist';
 import { Alert } from 'components/Alert/Alert';
 import { Scroll } from 'components/Scroll/Scroll';
+import { WishlistContext } from 'WishlistContext';
 
 export const Beer = () => {
   const params = useParams();
@@ -24,12 +25,13 @@ export const Beer = () => {
   const BeerId = RawBeerId.replace(':', '');
   const [beer, setBeer] = useState({});
   const [hide, setHide] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('beer was added');
+  const context = useContext(WishlistContext);
 
   const fetchBeer = () => {
     axios
       .get(`${process.env.REACT_APP_BEER_API_LINK}/beers/${BeerId}`)
       .then(response => {
-        console.log(response.data[0]);
         setBeer(response.data[0]);
       })
       .catch(err => console.log(err));
@@ -72,9 +74,15 @@ export const Beer = () => {
   const beerInfoRightEntries = Object.entries(beerInfoRight);
   const foodPairing = beer?.food_pairing;
 
-  const showAlert = () => {
-    console.log('lecymy');
+  const showAlertAndAddToWishlist = () => {
     setHide(true);
+    context.handleAddToWishlist(beer);
+
+    if (context.alert === true) {
+      setAlertMessage('beer was added to your wishlist');
+    } else {
+      setAlertMessage('beer has been already on your wishlist');
+    }
 
     setTimeout(() => {
       setHide(false);
@@ -85,7 +93,7 @@ export const Beer = () => {
     <Wrapper>
       <WidthWrapper>
         <Scroll />
-        <AddToWishlist showAlert={showAlert} />
+        <AddToWishlist showAlert={showAlertAndAddToWishlist} />
         <BeerInfo>
           {beerInfoLeftEntries.map(Info => {
             const [key, value] = Info;
@@ -130,7 +138,7 @@ export const Beer = () => {
           })}
         </BeerInfo>
         {/* {tagline} */}
-        {hide ? <Alert content="Beer was added to your wishlist" /> : null}
+        {hide ? <Alert content={alertMessage} /> : null}
       </WidthWrapper>
       <BeerWrapDescription>
         <BeerTitle>What is this actually?</BeerTitle>

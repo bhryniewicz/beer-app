@@ -22,7 +22,7 @@ function template(i) {
 }
 function getAnimations() {
   let str = '';
-  for (let index = 0; index < 5; index += 1) {
+  for (let index = 0; index < 6; index += 1) {
     str += template(index);
   }
   return str;
@@ -30,7 +30,6 @@ function getAnimations() {
 
 export const Wrapper = styled.div`
   display: none;
-  color: red;
   flex-direction: column;
   justify-content: center;
   align-items: center;

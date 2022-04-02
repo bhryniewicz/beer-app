@@ -13,7 +13,7 @@ export const PositionWrapper = styled.div`
   right: 15%;
   top: 20%;
   cursor: pointer;
-  z-index: 1000;
+  z-index: 300;
 
   @media ${({ theme }) => theme.breakpoints.mobileL} {
     top: 15.5%;

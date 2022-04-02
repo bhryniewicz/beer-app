@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { AiFillHeart } from 'react-icons/ai';
 import { Wrapper, PositionWrapper } from './AddToWishlist.styles';
-import { Alert } from 'components/Alert/Alert';
 
 export const AddToWishlist = ({ showAlert }) => {
   const heartStyles = {

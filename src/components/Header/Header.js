@@ -1,12 +1,19 @@
-import React from 'react';
-import { Wrapper, Logo, Navigation, WidthWrapper } from './Header.styles';
+import React, { useContext } from 'react';
+import { Wrapper, Logo, Navigation, WidthWrapper, Counter } from './Header.styles';
 import { NavLink } from 'react-router-dom';
 import { MobileNav } from 'components/MobileNav/MobileNav';
 import { Logo as HeaderLogo } from 'images';
+import { WishlistContext } from 'WishlistContext';
+import { AiOutlinePicLeft } from 'react-icons/ai';
 
 export const Header = props => {
   const ifActive = ({ isActive }) => (isActive ? 'active' : '');
-  const isWidth = false;
+  const ifActiveWish = ({ isActive }) => (isActive ? 'active wish' : '');
+  const { wishlistItems } = useContext(WishlistContext);
+
+  const style = {
+    fontSize: '26px'
+  };
 
   return (
     <Wrapper>
@@ -27,6 +34,10 @@ export const Header = props => {
             </NavLink>
             <NavLink to="/blog" className={ifActive}>
               Blog
+            </NavLink>
+            <NavLink to="/wishlist" className={ifActiveWish}>
+              <AiOutlinePicLeft style={style} />{' '}
+              <Counter>{wishlistItems.length > 9 ? '9+' : wishlistItems.length}</Counter>
             </NavLink>
           </ul>
         </Navigation>

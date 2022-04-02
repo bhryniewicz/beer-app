@@ -36,6 +36,7 @@ export const Logo = styled.img`
 export const Navigation = styled.nav`
   ul {
     display: flex;
+    align-items: center;
     list-style: none;
     color: black;
     @media ${({ theme }) => theme.breakpoints.mobileL} {
@@ -54,7 +55,19 @@ export const Navigation = styled.nav`
       &.active::before {
         content: '';
         position: absolute;
-        bottom: -7px;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        height: 2px;
+        background-color: #ffc312;
+      }
+
+      &.active.wish::before {
+        display: none;
+        content: '';
+        position: absolute;
+        bottom: -5px;
         left: 50%;
         transform: translateX(-50%);
         width: calc(100% - 40px);
@@ -63,4 +76,18 @@ export const Navigation = styled.nav`
       }
     }
   }
+`;
+
+export const Counter = styled.span`
+  position: absolute;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  top: -10px;
+  right: 10px;
+  background-color: ${({ theme }) => theme.colors.sunflower};
+  border-radius: 50%;
+  font-size: 12px;
 `;
