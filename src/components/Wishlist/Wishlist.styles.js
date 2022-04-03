@@ -5,11 +5,19 @@ export const Wrapper = styled.div`
   width: 100%;
   padding-top: 140px;
   background-color: ${({ theme }) => theme.colors.sunflower};
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    padding-top: 90px;
+  }
 `;
 
 export const WidthWrapper = styled.div`
   width: 70%;
   margin: 0 auto;
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    width: 100%;
+    padding: 0 10px;
+  }
 `;
 export const GridWrapper = styled.div`
   width: 100%;
@@ -27,6 +35,11 @@ export const Title = styled.h1`
   font-size: 38px;
   font-family: ${({ theme }) => theme.fontFamilies.titleFont};
   margin-bottom: 40px;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    font-size: 30px;
+    text-align: center;
+  }
 `;
 
 export const ItemWrapper = styled.div`
@@ -36,18 +49,6 @@ export const ItemWrapper = styled.div`
 export const AbsoluteWrapper = styled.div`
   display: flex;
   position: relative;
-`;
-
-const show = keyframes`
-    from {
-        width: 0;
-        opacity: 0;
-    }
-
-    to {
-        width: 60px;
-        opacity: 1;
-    }
 `;
 
 export const ItemWrapperDelete = styled.div`

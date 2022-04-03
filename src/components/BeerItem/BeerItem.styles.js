@@ -13,7 +13,9 @@ export const Wrapper = styled.div`
     padding: 20px;
   }
 
-
+  @media ${({ theme }) => theme.breakpoints.mobileM} {
+    grid-template-columns: 1fr 40px;
+  }
 `;
 
 export const WrapperDetails = styled.div`
@@ -68,5 +70,9 @@ export const Image = styled.img`
 
   @media ${({ theme }) => theme.breakpoints.mobileL} {
     width: 90px;
+  }
+
+  @media ${({ theme }) => theme.breakpoints.mobileM} {
+    transform: translateX(-40px);
   }
 `;

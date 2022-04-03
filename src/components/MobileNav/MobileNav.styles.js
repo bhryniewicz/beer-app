@@ -16,7 +16,7 @@ const moveMenu = keyframes`
 function template(i) {
   return `
           &:nth-child(${i + 1}) {
-            animation-delay: ${(i - 1) * 0.3}s;
+            animation-delay: ${(i - 1) * 0.2}s;
            }
         `;
 }
