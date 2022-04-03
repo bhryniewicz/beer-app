@@ -17,30 +17,41 @@ import { WishlistContext } from './WishlistContext';
 function App() {
   const [wishlistItems, setWishlistItems] =
     useState(JSON.parse(localStorage.getItem('names of items'))) || '';
-  const [alert, setAlert] = useState(true);
+  const [alert, setAlert] = useState('');
+  let arrOfBooleans = [];
 
   useEffect(() => {
     localStorage.setItem('names of items', JSON.stringify(wishlistItems));
   });
 
-  const handleAddToWishlist = beer => {
-    //sprawdzic czy beer id znajduje sie w tablicy
-    if (wishlistItems.indexOf(beer) === -1) {
-      setWishlistItems(prevState => [...prevState, beer]);
-      setAlert(true);
+  const containsObject = (obj, arr) => {
+    for (let i = 0; i < arr.length; i++) {
+      if (JSON.stringify(obj) === JSON.stringify(arr[i])) {
+        arrOfBooleans.push(true);
+      } else {
+        arrOfBooleans.push(false);
+      }
     }
-    //   console.log(wishlistItems.indexOf(beer) !== -1);
-    console.log('po dodaniu', wishlistItems);
-
-    setAlert(false);
   };
 
-  useEffect(() => {
-    console.log('zmiana', wishlistItems);
-  }, [wishlistItems]);
+  const handleAddToWishlist = beer => {
+    containsObject(beer, wishlistItems);
+
+    if (arrOfBooleans.includes(true)) {
+      setAlert(`It's already on your wishlist`);
+    } else {
+      setAlert('Item has been added');
+      setWishlistItems(prevState => [...prevState, beer]);
+    }
+
+    arrOfBooleans = [];
+  };
+
+  //   useEffect(() => {
+  //     console.log('zmiana', wishlistItems);
+  //   }, [wishlistItems]);
 
   const handleDeleteItem = id => {
-    console.log('delete');
     const filtered = wishlistItems.filter(item => item.id !== id);
     setWishlistItems(filtered);
   };

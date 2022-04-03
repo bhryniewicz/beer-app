@@ -7,7 +7,8 @@ import {
   WidthWrapper,
   Title,
   ItemWrapperDelete,
-  ItemsInfo
+  ItemsInfo,
+  AbsoluteWrapper
 } from './Wishlist.styles';
 import { Link } from 'react-router-dom';
 import { BeerItem } from 'components/BeerItem/BeerItem';
@@ -31,7 +32,7 @@ export const Wishlist = () => {
           {wishlistItems.length ? (
             wishlistItems.map(({ id, name, image_url, abv, ph }, idx) => {
               return (
-                <ItemWrapper id={id}>
+                <AbsoluteWrapper id={id}>
                   <ItemWrapper>
                     <Link to={`/beers:${id}`} key={id}>
                       <BeerItem
@@ -44,10 +45,12 @@ export const Wishlist = () => {
                       />
                     </Link>
                   </ItemWrapper>
-                  <ItemWrapperDelete onClick={() => handleDeleteItem(id)}>
-                    <AiFillDelete style={styles} />
-                  </ItemWrapperDelete>
-                </ItemWrapper>
+                  {
+                    <ItemWrapperDelete onClick={() => handleDeleteItem(id)}>
+                      <AiFillDelete style={styles} />
+                    </ItemWrapperDelete>
+                  }
+                </AbsoluteWrapper>
               );
             })
           ) : (

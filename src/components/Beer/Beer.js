@@ -25,7 +25,6 @@ export const Beer = () => {
   const BeerId = RawBeerId.replace(':', '');
   const [beer, setBeer] = useState({});
   const [hide, setHide] = useState(false);
-  const [alertMessage, setAlertMessage] = useState('beer was added');
   const context = useContext(WishlistContext);
 
   const fetchBeer = () => {
@@ -78,11 +77,11 @@ export const Beer = () => {
     setHide(true);
     context.handleAddToWishlist(beer);
 
-    if (context.alert === true) {
-      setAlertMessage('beer was added to your wishlist');
-    } else {
-      setAlertMessage('beer has been already on your wishlist');
-    }
+    // if (context.alert === true) {
+    //   setAlertMessage('beer was added to your wishlist');
+    // } else {
+    //   setAlertMessage('beer has been already on your wishlist');
+    // }
 
     setTimeout(() => {
       setHide(false);
@@ -138,7 +137,7 @@ export const Beer = () => {
           })}
         </BeerInfo>
         {/* {tagline} */}
-        {hide ? <Alert content={alertMessage} /> : null}
+        {hide ? <Alert content={context.alert} /> : null}
       </WidthWrapper>
       <BeerWrapDescription>
         <BeerTitle>What is this actually?</BeerTitle>

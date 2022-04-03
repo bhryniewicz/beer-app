@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const Wrapper = styled.div`
   min-height: 100vh;
@@ -16,6 +16,10 @@ export const GridWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, 1fr));
   grid-gap: 40px;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const Title = styled.h1`
@@ -29,14 +33,32 @@ export const ItemWrapper = styled.div`
   display: flex;
 `;
 
+export const AbsoluteWrapper = styled.div`
+  display: flex;
+  position: relative;
+`;
+
+const show = keyframes`
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 60px;
+        opacity: 1;
+    }
+`;
+
 export const ItemWrapperDelete = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
+  width: 60px;
   background-color: red;
   border: 1px solid ${({ theme }) => theme.colors.greene};
   background-color: ${({ theme }) => theme.colors.greene};
+  cursor: pointer;
 `;
 
 export const ItemsInfo = styled.h1`

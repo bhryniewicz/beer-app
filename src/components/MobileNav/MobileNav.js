@@ -1,13 +1,15 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Wrapper, HamburgerWrapper, MenuWrapper } from './MobileNav.styles';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { motion } from 'framer-motion';
+import { WishlistContext } from 'WishlistContext';
 
 export const MobileNav = () => {
   const [flag, setFlag] = useState(false);
 
+  const { wishlistItems } = useContext(WishlistContext);
   const changeVisibility = () => {
     setFlag(!flag);
   };
@@ -43,7 +45,7 @@ export const MobileNav = () => {
             Blog
           </NavLink>
           <NavLink to="/wishlist" onClick={changeVisibility} className="nav-5">
-            Wishlist
+            Wishlist ({wishlistItems.length})
           </NavLink>
         </Wrapper>
       ) : (
