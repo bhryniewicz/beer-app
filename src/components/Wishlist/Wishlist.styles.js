@@ -3,11 +3,11 @@ import styled, { keyframes } from 'styled-components';
 export const Wrapper = styled.div`
   min-height: 100vh;
   width: 100%;
-  padding-top: 140px;
+  padding: 140px 0 calc(140px - 8vh);
   background-color: ${({ theme }) => theme.colors.sunflower};
 
   @media ${({ theme }) => theme.breakpoints.mobileL} {
-    padding-top: 90px;
+    padding: 90px 0 calc(90px - 8vh);
   }
 `;
 

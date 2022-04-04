@@ -56,7 +56,10 @@ export const Wishlist = () => {
           ) : (
             <ItemsInfo>
               No items added yet <br />
-              If you want to add something go <Link to="/beers">here</Link>
+              If you want to add something go{' '}
+              <Link style={{ color: '#03544B' }} to="/beers">
+                here
+              </Link>
             </ItemsInfo>
           )}
         </GridWrapper>

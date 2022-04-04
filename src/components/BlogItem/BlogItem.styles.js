@@ -6,10 +6,32 @@ export const Wrapper = styled.div`
   align-items: center;
 `;
 
-export const ImageBlog = styled.img`
-  object-fit: cover;
+export const Wrap = styled.div`
   height: 200px;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ImageBlog = styled.img`
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+
+  &.smooth {
+    transition: opacity 1s;
+  }
+
+  &.hidden {
+    opacity: 0;
+    width: 0;
+  }
+
+  &.visible {
+    opacity: 1;
+    width: 100%;
+  }
 `;
 
 export const Description = styled.div`
