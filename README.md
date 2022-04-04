@@ -14,6 +14,9 @@
 - Styled-components
 - React-router
 - React-icons
+- React-intl
+- Polished
+- Framer-motion
 
 # Getting Started with Create React App
 
