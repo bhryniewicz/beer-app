@@ -8,6 +8,8 @@
 
 ### There is a wishlist, which uses localStorage to store beer, which we added
 
+### Site is hosted here: []()
+
 ### Technologies used:
 
 - Axios

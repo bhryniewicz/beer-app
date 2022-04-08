@@ -3,7 +3,6 @@ import { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Wrapper, HamburgerWrapper, MenuWrapper } from './MobileNav.styles';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
-import { motion } from 'framer-motion';
 import { WishlistContext } from 'WishlistContext';
 
 export const MobileNav = () => {
@@ -45,7 +44,7 @@ export const MobileNav = () => {
             Blog
           </NavLink>
           <NavLink to="/wishlist" onClick={changeVisibility} className="nav-5">
-            Wishlist ({wishlistItems.length})
+            Wishlist ({wishlistItems?.length ? wishlistItems?.length : '0'})
           </NavLink>
         </Wrapper>
       ) : (

@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
   @media ${({ theme }) => theme.breakpoints.mobileL} {
     height: 8vh;
   }
+
+  @media ${({ theme }) => theme.breakpoints.desktop} {
+    height: 10vh;
+  }
 `;
 
 export const WidthWrapper = styled.div`

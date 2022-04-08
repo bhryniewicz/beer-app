@@ -43,6 +43,10 @@ export const Button = styled.button`
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.5px;
+
+  @media ${({ theme }) => theme.breakpoints.mobileL} {
+    margin-bottom: 30px;
+  }
 `;
 
 export const Heading = styled.p`

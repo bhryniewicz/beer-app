@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Background2 } from 'images';
 
 export const LandingPageWrapper = styled.div`
-  background-image: url(${Background2});
+  background-image: ${({ background }) => (background ? `url(${background})` : null)};
   background-size: cover;
   background-position: 30%;
   background-color: rgba(0, 0, 0, 0.1);
@@ -18,6 +18,11 @@ export const LandingPageWrapper = styled.div`
   @media ${({ theme }) => theme.breakpoints.mobileL} {
     margin-top: 8vh;
     height: 92vh;
+  }
+
+  @media ${({ theme }) => theme.breakpoints.desktop} {
+    margin-top: 10vh;
+    height: 90vh;
   }
 
   div {

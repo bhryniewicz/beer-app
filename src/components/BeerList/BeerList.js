@@ -6,6 +6,7 @@ import { Filter } from 'components/Filter/Filter';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Scroll } from 'components/Scroll/Scroll';
+import { Bars } from 'react-loader-spinner';
 
 export const BeerList = () => {
   const [alcohols, setAlcohols] = useState([]);
@@ -52,10 +53,12 @@ export const BeerList = () => {
           {error ? (
             error
           ) : loading ? (
-            <Loading>Loading...</Loading>
+            <Loading>
+              Loading <Bars color="black" height={30} width={30} />
+            </Loading>
           ) : (
             findAlcohol.map(({ id, name, image_url, abv, ph }, idx) => {
-              // eslint-disable-next-line prettier/prettier
+              //   // eslint-disable-next-line prettier/prettier
               return (
                 <Link to={`/beers:${id}`} key={id}>
                   <BeerItem id={id} name={name} image_url={image_url} abv={abv} key={idx} ph={ph} />

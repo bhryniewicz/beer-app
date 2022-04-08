@@ -14,6 +14,7 @@ import { Image } from 'components/ImageSection/Image';
 import { Background } from 'images';
 import { Loading } from 'components/BeerList/BeerList.styles';
 import axios from 'axios';
+import { Bars } from 'react-loader-spinner';
 
 export const Blog = props => {
   const [posts, setPosts] = useState([]);
@@ -70,14 +71,16 @@ export const Blog = props => {
 
         <BlogList>
           {loading ? (
-            <Loading isBiggerGrid>Loading...</Loading>
+            <Loading isBiggerGrid>
+              Loading <Bars color="black" height={30} width={30} />
+            </Loading>
           ) : (
             list.map(({ id, title, paragraph, image: { url } }) => {
               return <BlogItem title={title} paragraph={paragraph} url={url} id={id} key={id} />;
             })
           )}
         </BlogList>
-        {limit >= posts.length ? null : <LoadMore onClick={loadMore}>load more</LoadMore>}
+        {limit >= posts?.length ? null : <LoadMore onClick={loadMore}>load more</LoadMore>}
       </WidthWrapper>
     </Wrapper>
   );

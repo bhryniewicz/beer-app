@@ -20,7 +20,6 @@ export const Filter = (
   };
 
   const changeName = e => {
-    console.log(e.target.value);
     setSearchName(e.target.value);
     if (e.target.value === '') {
       setSearchName('');
@@ -30,7 +29,6 @@ export const Filter = (
   const changeProcentage = e => {
     let procentage = parseFloat(e.target.value);
 
-    console.log(procentage);
     setProcentage(procentage);
   };
 
@@ -40,7 +38,6 @@ export const Filter = (
       return;
     }
     const filtered = alcohols.filter(alco => alco.id === idx);
-    console.log(filtered);
     setFindAlcohol(filtered);
   }, [idx]);
 
@@ -59,7 +56,6 @@ export const Filter = (
       axios
         .get(`${process.env.REACT_APP_BEER_API_LINK}/beers?abv_gt=${procentage}`)
         .then(res => {
-          console.log(res.data);
           setFindAlcohol(res.data);
         })
         .catch(err => console.log(err));

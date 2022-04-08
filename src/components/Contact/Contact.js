@@ -16,7 +16,6 @@ export const Contact = props => {
 
   const newInformation = Object.entries(information);
 
-  console.log(newInformation);
 
   return (
     <Wrapper>
@@ -36,13 +35,13 @@ export const Contact = props => {
           <Info isBigger>
             {newInformation.map((newInfo, idx, arr) => {
               const [header, info] = newInfo;
-              if (arr.length - 1 === idx) {
+              if (arr?.length - 1 === idx) {
                 return (
                   <Heading key={idx}>
                     {header} - {info}
                   </Heading>
                 );
-              } else if (arr.length - 2 === idx) {
+              } else if (arr?.length - 2 === idx) {
                 return (
                   <Heading key={idx}>
                     <br />

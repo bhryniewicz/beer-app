@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Wrapper } from 'App.styles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Main } from 'components/views/Main';
@@ -14,18 +14,26 @@ import { Wishlist } from 'components/Wishlist/Wishlist';
 import { theme } from './theme';
 import { WishlistContext } from './WishlistContext';
 
-function App() {
-  const [wishlistItems, setWishlistItems] =
-    useState(JSON.parse(localStorage.getItem('names of items'))) || '';
+export function App() {
+  const [wishlistItems, setWishlistItems] = useState([]);
+
   const [alert, setAlert] = useState('');
   let arrOfBooleans = [];
 
   useEffect(() => {
+    if (JSON.parse(localStorage.getItem('names of items')) === null) {
+      setWishlistItems([]);
+    } else {
+      setWishlistItems(JSON.parse(localStorage.getItem('names of items')));
+    }
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem('names of items', JSON.stringify(wishlistItems));
-  });
+  }, [wishlistItems]);
 
   const containsObject = (obj, arr) => {
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr?.length; i++) {
       if (JSON.stringify(obj) === JSON.stringify(arr[i])) {
         arrOfBooleans.push(true);
       } else {
@@ -46,10 +54,6 @@ function App() {
 
     arrOfBooleans = [];
   };
-
-  //   useEffect(() => {
-  //     console.log('zmiana', wishlistItems);
-  //   }, [wishlistItems]);
 
   const handleDeleteItem = id => {
     const filtered = wishlistItems.filter(item => item.id !== id);
@@ -80,5 +84,3 @@ function App() {
     </WishlistContext.Provider>
   );
 }
-
-export default App;

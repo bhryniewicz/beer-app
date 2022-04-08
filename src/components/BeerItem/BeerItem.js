@@ -13,12 +13,8 @@ export const BeerItem = ({ id, name, image_url, abv, ph }, ...props) => {
       initial={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Title>{name.length > 20 ? `${name.slice(0, 20)}...` : name}</Title>
-      <Image
-        src={image_url}
-        alt={name}
-        onLoad={<InfinitySpin type="Puff" color="#00BFFF" height={100} width={100} />}
-      />
+      <Title>{name?.length > 20 ? `${name.slice(0, 20)}...` : name}</Title>
+      <Image src={image_url} alt={name} />
       <Description>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, sunt.
       </Description>

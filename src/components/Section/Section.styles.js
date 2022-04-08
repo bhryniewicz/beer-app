@@ -3,10 +3,12 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&family=Sansita+Swashed:wght@400;600&display=swap');
   background-color: green;
-  height: ${({ isOneBackground }) => (isOneBackground ? '100vh' : '86vh')};
+  height: ${({ isOneBackground }) => (isOneBackground ? 'min-content' : '86vh')};
   padding: 40px 0;
   background-color: ${({ isColor }) => (isColor ? isColor : 'white')};
   position: relative;
+  display: flex;
+  align-items: center;
 
   @media ${({ theme }) => theme.breakpoints.mobileL} {
      height: max-content;
@@ -39,6 +41,7 @@ export const DescriptionWrapper = styled.div`
   margin-top: 60px;
   display: flex;
   align-items: center;
+
   font-family: ${({ theme }) => theme.fontFamilies.normalFont};
 
   @media ${({ theme }) => theme.breakpoints.mobileL} {
@@ -77,7 +80,7 @@ export const Title = styled.h1`
 
   &::before {
     content: '';
-    width: 1000px;
+    width: 1400px;
     display: flex;
     align-self: center;
     height: 1.5px;

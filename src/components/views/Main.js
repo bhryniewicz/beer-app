@@ -3,6 +3,7 @@ import { LandingPageWrapper, Wrapper } from './Mains.styles';
 import { Section } from 'components/Section/Section';
 import { Beers, Chmiel3, Types2 } from 'images';
 import { motion } from 'framer-motion';
+import { Background2 } from 'images';
 
 export const Main = () => {
   const data = [
@@ -36,7 +37,7 @@ export const Main = () => {
 
   return (
     <Wrapper>
-      <LandingPageWrapper>
+      <LandingPageWrapper background={Background2}>
         <div>
           <motion.h1 animate={{ x: [100, 0], opacity: [0, 1] }} transition={{ duration: 1 }}>
             The Beer,

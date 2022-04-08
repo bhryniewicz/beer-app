@@ -2,8 +2,9 @@ import { lighten } from 'polished';
 const sizes = {
   mobileS: '321px',
   mobileM: '376px',
-  mobileL: '416px',
-  tablet: '769px'
+  mobileL: '750px',
+  tablet: '769px',
+  desktop: '1441px'
 };
 export const theme = {
   colors: {
@@ -32,6 +33,7 @@ export const theme = {
     mobileS: `screen and (max-width:${sizes.mobileS})`,
     mobileM: `screen and (max-width:${sizes.mobileM})`,
     mobileL: `screen and (max-width:${sizes.mobileL})`,
-    tablet: `screen and (max-width:${sizes.tablet})`
+    tablet: `screen and (max-width:${sizes.tablet})`,
+    desktop: `screen and (min-width:${sizes.desktop})`
   }
 };

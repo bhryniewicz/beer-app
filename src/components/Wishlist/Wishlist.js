@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { WishlistContext } from 'WishlistContext';
 import {
   Wrapper,
@@ -15,7 +15,7 @@ import { BeerItem } from 'components/BeerItem/BeerItem';
 import { AiFillDelete } from 'react-icons/ai';
 
 export const Wishlist = () => {
-  const { wishlistItems, handleDeleteItem } = useContext(WishlistContext);
+  const context = useContext(WishlistContext);
 
   const styles = {
     color: '#FFC312',
@@ -25,14 +25,17 @@ export const Wishlist = () => {
   return (
     <Wrapper>
       <WidthWrapper>
-        {wishlistItems.length ? (
-          <Title>Your wishlist (total items: {wishlistItems.length})</Title>
+        {context.wishlistItems?.length ? (
+          <Title>
+            Your wishlist (total items:{' '}
+            {context.wishlistItems?.length ? context.wishlistItems?.length : '0'})
+          </Title>
         ) : null}
         <GridWrapper>
-          {wishlistItems.length ? (
-            wishlistItems.map(({ id, name, image_url, abv, ph }, idx) => {
+          {context.wishlistItems?.length ? (
+            context.wishlistItems.map(({ id, name, image_url, abv, ph }, idx) => {
               return (
-                <AbsoluteWrapper id={id}>
+                <AbsoluteWrapper id={id} key={idx}>
                   <ItemWrapper>
                     <Link to={`/beers:${id}`} key={id}>
                       <BeerItem
@@ -46,7 +49,7 @@ export const Wishlist = () => {
                     </Link>
                   </ItemWrapper>
                   {
-                    <ItemWrapperDelete onClick={() => handleDeleteItem(id)}>
+                    <ItemWrapperDelete onClick={() => context.handleDeleteItem(id)}>
                       <AiFillDelete style={styles} />
                     </ItemWrapperDelete>
                   }

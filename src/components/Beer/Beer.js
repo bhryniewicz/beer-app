@@ -77,12 +77,6 @@ export const Beer = () => {
     setHide(true);
     context.handleAddToWishlist(beer);
 
-    // if (context.alert === true) {
-    //   setAlertMessage('beer was added to your wishlist');
-    // } else {
-    //   setAlertMessage('beer has been already on your wishlist');
-    // }
-
     setTimeout(() => {
       setHide(false);
     }, 2000);

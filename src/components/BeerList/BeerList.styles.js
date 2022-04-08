@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Bars } from 'react-loader-spinner';
 
 export const FlexWrapper = styled.div`
   width: 100%;
@@ -30,7 +31,14 @@ export const WidthWrapper = styled.div`
 export const Loading = styled.h2`
   grid-column: ${({ isBiggerGrid }) => (isBiggerGrid ? '1/8' : '1/3')};
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: ${({ theme }) => theme.fontFamilies.titleFont};
   font-size: 40px;
   letter-spacing: 3px;
+
+  svg {
+    margin-left: 10px;
+  }
 `;
