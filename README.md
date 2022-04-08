@@ -8,7 +8,7 @@
 
 ### There is a wishlist, which uses localStorage to store beer, which we added
 
-### Site is hosted here: []()
+### Site is hosted here: [https://bartoszbeerapp.netlify.app](https://bartoszbeerapp.netlify.app)
 
 ### Technologies used:
 
